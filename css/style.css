@@ -384,6 +384,10 @@ a:hover {
   border-radius: 0.25rem;
   color: #343a40;
 }
+.navbar__toggler i {
+  font-size: 1.2rem;
+  display: block;
+}
 .navbar__toggler:focus {
   outline: none;
   box-shadow: none;

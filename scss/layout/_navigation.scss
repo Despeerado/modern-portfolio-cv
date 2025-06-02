@@ -34,6 +34,11 @@
 		border-radius: 0.25rem;
 		color: $dark-color;
 
+		i {
+			font-size: 1.2rem; // Mírně zvětšíme ikonu pro lepší viditelnost
+			display: block; // Zajistíme, že ikona bude správně zobrazena
+		}
+
 		&:focus {
 			outline: none;
 			box-shadow: none;
