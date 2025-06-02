@@ -127,4 +127,79 @@
 			margin-top: 0.5rem;
 		}
 	}
+
+	&__buttons {
+		display: flex;
+		gap: 1rem;
+		margin-top: 1rem;
+	}
+}
+
+// Responzivní úpravy pro formulář
+@include respond-to(sm) {
+	.form__buttons {
+		flex-direction: column;
+
+		.btn {
+			width: 100%;
+			margin-bottom: 0.5rem;
+		}
+	}
+}
+
+// Helpery pro přístupnost
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+// Stavové indikátory pro formuláře
+.is-invalid {
+	border-color: #dc3545;
+
+	&:focus {
+		box-shadow: 0 0 0 3px rgba(#dc3545, 0.25);
+	}
+}
+
+.is-valid {
+	border-color: $success-color;
+
+	&:focus {
+		box-shadow: 0 0 0 3px rgba($success-color, 0.25);
+	}
+}
+
+// Validační zprávy
+.invalid-feedback {
+	display: none;
+	width: 100%;
+	margin-top: 0.25rem;
+	font-size: 0.875rem;
+	color: #dc3545;
+}
+
+.valid-feedback {
+	display: none;
+	width: 100%;
+	margin-top: 0.25rem;
+	font-size: 0.875rem;
+	color: $success-color;
+}
+
+.was-validated .form__control:invalid ~ .invalid-feedback,
+.form__control.is-invalid ~ .invalid-feedback {
+	display: block;
+}
+
+.was-validated .form__control:valid ~ .valid-feedback,
+.form__control.is-valid ~ .valid-feedback {
+	display: block;
 }

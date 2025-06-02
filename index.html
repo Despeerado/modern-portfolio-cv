@@ -435,38 +435,50 @@
                 </div>
                 <div class="col-lg-7" data-aos="fade-left">
                     <div class="contact__form">
-                        <form id="contactForm" action="https://formspree.io/f/your-formspree-id" method="POST">
+                        <form id="contactForm" action="https://formspree.io/f/your-formspree-id" method="POST"
+                            aria-label="Kontaktní formulář" novalidate>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form__group">
                                         <label for="name" class="form__label required-field">Jméno</label>
                                         <input type="text" class="form__control" id="name" name="name"
-                                            placeholder="Vaše jméno" required>
+                                            placeholder="Vaše jméno" required aria-required="true">
+                                        <div class="invalid-feedback">Prosím vyplňte své jméno.</div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form__group">
                                         <label for="email" class="form__label required-field">Email</label>
                                         <input type="email" class="form__control" id="email" name="email"
-                                            placeholder="Váš email" required>
+                                            placeholder="Váš email" required aria-required="true"
+                                            aria-describedby="emailHelp">
+                                        <div id="emailHelp" class="form-text">Váš email nebude nikde veřejně zobrazen.
+                                        </div>
+                                        <div class="invalid-feedback">Prosím zadejte platnou emailovou adresu.</div>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form__group">
                                         <label for="subject" class="form__label required-field">Předmět</label>
                                         <input type="text" class="form__control" id="subject" name="subject"
-                                            placeholder="Předmět" required>
+                                            placeholder="Předmět" required aria-required="true">
+                                        <div class="invalid-feedback">Prosím vyplňte předmět zprávy.</div>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form__group">
                                         <label for="message" class="form__label required-field">Zpráva</label>
                                         <textarea class="form__control form__control--textarea" id="message"
-                                            name="message" rows="5" placeholder="Vaše zpráva" required></textarea>
+                                            name="message" rows="5" placeholder="Vaše zpráva" required
+                                            aria-required="true"></textarea>
+                                        <div class="invalid-feedback">Prosím napište svou zprávu.</div>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn--primary">Odeslat zprávu</button>
+                                    <div class="form__buttons">
+                                        <button type="submit" class="btn btn--primary">Odeslat zprávu</button>
+                                        <button type="reset" class="btn btn--outline-dark">Vymazat</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>

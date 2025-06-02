@@ -158,6 +158,46 @@ document.addEventListener('DOMContentLoaded', function () {
 				}, 1500)
 			}
 		})
+
+		// Form validation
+		contactForm.addEventListener('submit', function (e) {
+			if (!this.checkValidity()) {
+				e.preventDefault()
+				e.stopPropagation()
+			}
+
+			this.classList.add('was-validated')
+
+			// Custom validation feedback
+			const inputs = this.querySelectorAll('.form__control')
+			inputs.forEach((input) => {
+				if (!input.validity.valid) {
+					input.classList.add('is-invalid')
+				} else {
+					input.classList.add('is-valid')
+				}
+
+				// Update on input change
+				input.addEventListener('input', function () {
+					if (this.validity.valid) {
+						this.classList.remove('is-invalid')
+						this.classList.add('is-valid')
+					} else {
+						this.classList.remove('is-valid')
+						this.classList.add('is-invalid')
+					}
+				})
+			})
+		})
+
+		// Reset form validation state on reset
+		contactForm.addEventListener('reset', function () {
+			this.classList.remove('was-validated')
+			const inputs = this.querySelectorAll('.form__control')
+			inputs.forEach((input) => {
+				input.classList.remove('is-valid', 'is-invalid')
+			})
+		})
 	}
 
 	// Email validation helper function
