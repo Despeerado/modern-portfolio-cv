@@ -62,7 +62,28 @@
 	box-shadow: $glass-shadow;
 }
 
-// Responsivní mixin
+// Responsivní mixin - mobile-first přístup
+@mixin respond-from($breakpoint) {
+	@if $breakpoint == sm {
+		@media (min-width: $breakpoint-sm) {
+			@content;
+		}
+	} @else if $breakpoint == md {
+		@media (min-width: $breakpoint-md) {
+			@content;
+		}
+	} @else if $breakpoint == lg {
+		@media (min-width: $breakpoint-lg) {
+			@content;
+		}
+	} @else if $breakpoint == xl {
+		@media (min-width: $breakpoint-xl) {
+			@content;
+		}
+	}
+}
+
+// Starší mixin pro zpětnou kompatibilitu
 @mixin respond-to($breakpoint) {
 	@if $breakpoint == sm {
 		@media (max-width: $breakpoint-sm) {

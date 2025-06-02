@@ -6,4 +6,115 @@
 	&__section {
 		background-color: $gray-light;
 	}
+
+	&__filter {
+		margin-bottom: 2rem;
+
+		&__button {
+			background: transparent;
+			border: none;
+			font-weight: $font-weight-medium;
+			padding: 0.5rem 1rem;
+			border-radius: $border-radius-small;
+			cursor: pointer;
+			transition: $transition;
+			color: $dark-color;
+
+			&:hover {
+				color: $primary-color;
+			}
+
+			&--active {
+				background-color: $primary-color;
+				color: $light-color;
+
+				&:hover {
+					color: $light-color;
+				}
+			}
+
+			&--glass {
+				@include glassmorphism();
+
+				&:hover {
+					transform: translateY(-3px);
+				}
+			}
+		}
+	}
+
+	&__grid {
+		margin-bottom: 2rem;
+	}
+
+	&__item {
+		position: relative;
+		overflow: hidden;
+		border-radius: $border-radius-medium;
+		box-shadow: $box-shadow;
+		transition: $transition;
+		height: 100%;
+
+		&:hover {
+			transform: translateY(-5px);
+			box-shadow: $box-shadow-hover;
+
+			.portfolio__overlay {
+				opacity: 1;
+			}
+		}
+
+		img {
+			width: 100%;
+			height: 220px;
+			object-fit: cover;
+			transition: $transition;
+		}
+	}
+
+	&__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba($primary-dark, 0.8);
+		opacity: 0;
+		transition: $transition;
+		@include flex(column, center, center);
+		padding: 1.5rem;
+	}
+
+	&__title {
+		color: $light-color;
+		margin-bottom: 0.5rem;
+		font-size: 1.25rem;
+		text-align: center;
+	}
+
+	&__category {
+		color: rgba($light-color, 0.8);
+		font-size: 0.9rem;
+		margin-bottom: 1rem;
+	}
+
+	&__buttons {
+		@include flex(row, center, center);
+		gap: 0.75rem;
+	}
+
+	&__button {
+		width: 40px;
+		height: 40px;
+		border-radius: $border-radius-circle;
+		background: $light-color;
+		@include flex();
+		color: $primary-dark;
+		transition: $transition;
+
+		&:hover {
+			background: $primary-light;
+			color: $light-color;
+		}
+	}
 }

@@ -7,10 +7,39 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
 	// Initialize AOS (Animate On Scroll)
-	AOS.init({
-		duration: 800,
-		easing: 'ease-in-out',
-		once: true,
+	// Function to handle AOS animations based on device type
+	function initializeAOS() {
+		const isMobile = window.innerWidth <= 768
+		const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+
+		// On mobile or touch devices, replace problematic horizontal animations
+		if (isMobile || isTouch) {
+			document.querySelectorAll('[data-aos="fade-left"], [data-aos="fade-right"]').forEach((element) => {
+				element.setAttribute('data-aos', 'fade-up')
+			})
+		}
+
+		AOS.init({
+			duration: isMobile ? 600 : 800,
+			easing: 'ease-in-out',
+			once: true,
+			disable: false,
+			offset: isMobile ? 30 : 50,
+			anchorPlacement: 'top-bottom',
+		})
+	}
+
+	// Initialize AOS
+	initializeAOS()
+
+	// Reinitialize AOS on window resize to handle orientation changes
+	let resizeTimeout
+	window.addEventListener('resize', function () {
+		clearTimeout(resizeTimeout)
+		resizeTimeout = setTimeout(function () {
+			AOS.refresh()
+			initializeAOS()
+		}, 250)
 	})
 
 	// Navbar shrink effect on scroll
@@ -33,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	navbarShrink()
 
 	// Smooth scrolling for all anchor links
-	document.querySelectorAll('a.nav-link, a.btn-hire-me, a.back-to-top').forEach((link) => {
+	document.querySelectorAll('a.navbar__link, a.btn-hire-me, a.back-to-top').forEach((link) => {
 		link.addEventListener('click', function (e) {
 			if (this.hash !== '') {
 				e.preventDefault()
@@ -56,13 +85,26 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Back to top button
 	const backToTopButton = document.getElementById('backToTop')
 
-	window.addEventListener('scroll', () => {
-		if (window.scrollY > 300) {
-			backToTopButton.classList.add('active')
-		} else {
-			backToTopButton.classList.remove('active')
-		}
-	})
+	if (backToTopButton) {
+		window.addEventListener('scroll', () => {
+			if (window.scrollY > 300) {
+				backToTopButton.classList.add('show')
+				backToTopButton.classList.remove('d-none')
+			} else {
+				backToTopButton.classList.remove('show')
+				backToTopButton.classList.add('d-none')
+			}
+		})
+
+		// Smooth scroll to top
+		backToTopButton.addEventListener('click', (e) => {
+			e.preventDefault()
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth',
+			})
+		})
+	}
 
 	// Dark mode toggle
 	// Create dark mode toggle button
@@ -98,106 +140,97 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Validate and handle form submission
 	const contactForm = document.getElementById('contactForm')
 	if (contactForm) {
-		contactForm.addEventListener('submit', function (e) {
-			e.preventDefault()
-
-			// Basic validation
-			let isValid = true
-			const name = document.getElementById('name')
-			const email = document.getElementById('email')
-			const subject = document.getElementById('subject')
-			const message = document.getElementById('message')
-
-			if (name.value.trim() === '') {
-				isValid = false
-				name.classList.add('is-invalid')
+		// Bootstrap 5 form validation
+		contactForm.addEventListener('submit', function (event) {
+			if (!contactForm.checkValidity()) {
+				event.preventDefault()
+				event.stopPropagation()
 			} else {
-				name.classList.remove('is-invalid')
+				// Form is valid, handle submission
+				event.preventDefault()
+				handleFormSubmission()
 			}
 
-			if (email.value.trim() === '' || !isValidEmail(email.value)) {
-				isValid = false
-				email.classList.add('is-invalid')
-			} else {
-				email.classList.remove('is-invalid')
-			}
-
-			if (subject.value.trim() === '') {
-				isValid = false
-				subject.classList.add('is-invalid')
-			} else {
-				subject.classList.remove('is-invalid')
-			}
-
-			if (message.value.trim() === '') {
-				isValid = false
-				message.classList.add('is-invalid')
-			} else {
-				message.classList.remove('is-invalid')
-			}
-
-			if (isValid) {
-				// If using Formspree, the form will handle submission
-				// If not, show success message
-				const submitBtn = contactForm.querySelector('button[type="submit"]')
-				const originalText = submitBtn.textContent
-
-				submitBtn.disabled = true
-				submitBtn.textContent = 'Odesílání...'
-
-				// Simulate form submission (remove this in production)
-				setTimeout(() => {
-					submitBtn.textContent = 'Odesláno!'
-					contactForm.reset()
-
-					// Reset button after 3 seconds
-					setTimeout(() => {
-						submitBtn.textContent = originalText
-						submitBtn.disabled = false
-					}, 3000)
-				}, 1500)
-			}
+			contactForm.classList.add('was-validated')
 		})
 
-		// Form validation
-		contactForm.addEventListener('submit', function (e) {
-			if (!this.checkValidity()) {
-				e.preventDefault()
-				e.stopPropagation()
-			}
-
-			this.classList.add('was-validated')
-
-			// Custom validation feedback
-			const inputs = this.querySelectorAll('.form__control')
-			inputs.forEach((input) => {
-				if (!input.validity.valid) {
-					input.classList.add('is-invalid')
+		// Real-time validation feedback
+		const formControls = contactForm.querySelectorAll('.form-control')
+		formControls.forEach((input) => {
+			input.addEventListener('input', function () {
+				if (this.checkValidity()) {
+					this.classList.remove('is-invalid')
+					this.classList.add('is-valid')
 				} else {
-					input.classList.add('is-valid')
+					this.classList.remove('is-valid')
+					this.classList.add('is-invalid')
 				}
-
-				// Update on input change
-				input.addEventListener('input', function () {
-					if (this.validity.valid) {
-						this.classList.remove('is-invalid')
-						this.classList.add('is-valid')
-					} else {
-						this.classList.remove('is-valid')
-						this.classList.add('is-invalid')
-					}
-				})
 			})
 		})
 
-		// Reset form validation state on reset
+		// Reset form validation on reset
 		contactForm.addEventListener('reset', function () {
 			this.classList.remove('was-validated')
-			const inputs = this.querySelectorAll('.form__control')
-			inputs.forEach((input) => {
+			formControls.forEach((input) => {
 				input.classList.remove('is-valid', 'is-invalid')
 			})
 		})
+
+		// Handle form submission
+		function handleFormSubmission() {
+			const submitBtn = contactForm.querySelector('button[type="submit"]')
+			const originalHTML = submitBtn.innerHTML
+
+			// Show loading state
+			submitBtn.disabled = true
+			submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Odesílání...'
+
+			// Simulate form submission (replace with actual submission logic)
+			setTimeout(() => {
+				// Show success state
+				submitBtn.innerHTML = '<i class="fas fa-check me-2"></i>Odesláno!'
+				submitBtn.classList.remove('btn-primary')
+				submitBtn.classList.add('btn-success')
+
+				// Show success message
+				showAlert('Zpráva byla úspěšně odeslána! Odpovím vám co nejdříve.', 'success')
+
+				// Reset form
+				contactForm.reset()
+				contactForm.classList.remove('was-validated')
+				formControls.forEach((input) => {
+					input.classList.remove('is-valid', 'is-invalid')
+				})
+
+				// Reset button after 3 seconds
+				setTimeout(() => {
+					submitBtn.innerHTML = originalHTML
+					submitBtn.classList.remove('btn-success')
+					submitBtn.classList.add('btn-primary')
+					submitBtn.disabled = false
+				}, 3000)
+			}, 1500)
+		}
+
+		// Show alert function
+		function showAlert(message, type) {
+			const alertDiv = document.createElement('div')
+			alertDiv.className = `alert alert-${type} alert-dismissible fade show mt-3`
+			alertDiv.innerHTML = `
+				${message}
+				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			`
+
+			// Insert alert after form
+			contactForm.parentNode.insertBefore(alertDiv, contactForm.nextSibling)
+
+			// Auto remove after 5 seconds
+			setTimeout(() => {
+				if (alertDiv.parentNode) {
+					alertDiv.remove()
+				}
+			}, 5000)
+		}
 	}
 
 	// Email validation helper function

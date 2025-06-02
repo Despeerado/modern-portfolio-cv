@@ -8,6 +8,8 @@
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 @import 'abstracts/functions';
+@import 'abstracts/responsive';
+@import 'abstracts/mobile-first';
 
 // Vendors (třetí strany, jako Bootstrap přizpůsobení)
 @import 'vendors/bootstrap';
@@ -42,6 +44,3 @@
 
 // Themes
 @import 'themes/dark-mode';
-
-// Responsivní styly
-@import 'abstracts/responsive';

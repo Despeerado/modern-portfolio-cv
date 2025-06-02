@@ -7,3 +7,135 @@
 		background-color: $gray-light;
 	}
 }
+
+.testimonial {
+	&__carousel {
+		position: relative;
+	}
+
+	&__item {
+		background: $light-color;
+		border-radius: $border-radius-medium;
+		@include glassmorphism();
+		transition: $transition;
+		height: 100%;
+
+		&:hover {
+			transform: translateY(-5px);
+			box-shadow: $box-shadow-hover;
+		}
+	}
+
+	&__content {
+		position: relative;
+		padding-top: 2.5rem;
+
+		&::before {
+			content: '\201C';
+			position: absolute;
+			top: -1rem;
+			left: 0;
+			font-size: 5rem;
+			color: rgba($primary-color, 0.2);
+			font-family: serif;
+			line-height: 1;
+		}
+
+		p {
+			color: $gray-color;
+			font-style: italic;
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	&__author {
+		@include flex(row, flex-start, center);
+	}
+
+	&__avatar {
+		width: 60px;
+		height: 60px;
+		border-radius: $border-radius-circle;
+		overflow: hidden;
+		margin-right: 1rem;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__info {
+		&__name {
+			font-weight: $font-weight-semibold;
+			margin-bottom: 0.25rem;
+		}
+
+		&__role {
+			font-size: 0.9rem;
+			color: $gray-color;
+		}
+	}
+
+	&__rating {
+		margin-top: 1rem;
+
+		i {
+			color: $accent-color-2;
+			margin-right: 0.25rem;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	&__carousel-control {
+		width: 40px;
+		height: 40px;
+		background: $primary-color;
+		color: $light-color;
+		border-radius: $border-radius-circle;
+		@include flex();
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		cursor: pointer;
+		transition: $transition;
+		box-shadow: $box-shadow;
+
+		&:hover {
+			background: $primary-dark;
+		}
+
+		&--prev {
+			left: -20px;
+		}
+
+		&--next {
+			right: -20px;
+		}
+	}
+
+	&__indicators {
+		@include flex(row, center, center);
+		margin-top: 2rem;
+		gap: 0.5rem;
+
+		.indicator {
+			width: 10px;
+			height: 10px;
+			border-radius: $border-radius-circle;
+			background: rgba($primary-color, 0.3);
+			cursor: pointer;
+			transition: $transition;
+
+			&--active {
+				width: 30px;
+				border-radius: 5px;
+				background: $primary-color;
+			}
+		}
+	}
+}

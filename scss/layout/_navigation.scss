@@ -9,6 +9,11 @@
 	@include glassmorphism();
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1030;
 
 	&--shrink {
 		padding: 0.5rem 0;
@@ -33,6 +38,13 @@
 		border: 1px solid $dark-color;
 		border-radius: 0.25rem;
 		color: $dark-color;
+		position: relative;
+		z-index: 1031;
+		display: none; // Skryjeme na desktopu
+
+		@media (max-width: $breakpoint-lg) {
+			display: block; // Zobrazíme pouze na mobilu
+		}
 
 		i {
 			font-size: 1.2rem; // Mírně zvětšíme ikonu pro lepší viditelnost
@@ -69,6 +81,23 @@
 		&:hover::after,
 		&--active::after {
 			width: 100%;
+		}
+	}
+
+	// Mobilní menu - pouze pro větší zařízení, protože mobile je řešeno v mobile-first
+	@media (min-width: $breakpoint-lg) {
+		.navbar-collapse {
+			background: transparent;
+			padding: 0;
+			border-radius: 0;
+			margin-top: 0;
+			box-shadow: none;
+			max-height: none;
+			overflow-y: visible;
+		}
+
+		.navbar-nav {
+			padding: 0;
 		}
 	}
 }
