@@ -1,0 +1,40 @@
+/**
+ * Ikony a prvky s ikonami
+ */
+
+.social-icons {
+	display: flex;
+	align-items: center;
+
+	&__item {
+		@include circle-icon(40px, rgba(255, 255, 255, 0.1), $light-color);
+		margin-right: 1rem;
+
+		&:hover {
+			background-color: $primary-light;
+			transform: translateY(-3px);
+			box-shadow: $box-shadow;
+		}
+
+		// Varianta pro footer a kontaktní sekci
+		&--footer,
+		&--contact {
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+	}
+}
+
+// Dark mode toggle
+.dark-mode-toggle {
+	@include fixed-position(top-right, 20px);
+	top: 100px;
+	@include circle-icon(40px, $primary-color, $light-color, 1.2rem);
+	box-shadow: $box-shadow;
+	z-index: 999;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $primary-dark;
+		transform: scale(1.1);
+	}
+}

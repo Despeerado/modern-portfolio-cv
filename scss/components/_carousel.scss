@@ -1,0 +1,104 @@
+/**
+ * Karusely a slidery
+ */
+
+.carousel {
+	// Testimonial carousel
+	&--testimonial {
+		.carousel-item {
+			padding: 3rem 2rem;
+		}
+
+		.carousel-control {
+			width: 50px;
+			height: 50px;
+			background-color: $primary-color;
+			border-radius: $border-radius-circle;
+			opacity: 1;
+			top: 50%;
+			transform: translateY(-50%);
+
+			&--prev {
+				left: -25px;
+			}
+
+			&--next {
+				right: -25px;
+			}
+
+			i {
+				color: $light-color;
+			}
+		}
+	}
+}
+
+.testimonial {
+	&__item {
+		padding: 3rem 2rem;
+	}
+
+	&__content {
+		@include glassmorphism();
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -15px;
+			left: 30px;
+			width: 30px;
+			height: 30px;
+			background-color: rgba(255, 255, 255, 0.25);
+			transform: rotate(45deg);
+			box-shadow: $box-shadow;
+			z-index: -1;
+		}
+
+		&__text {
+			font-style: italic;
+			margin-bottom: 0;
+			position: relative;
+			z-index: 1;
+
+			&::before {
+				content: '\f10d';
+				font-family: 'Font Awesome 5 Free';
+				font-weight: 900;
+				font-size: 2rem;
+				color: rgba($primary-color, 0.1);
+				position: absolute;
+				top: -15px;
+				left: -10px;
+				z-index: -1;
+			}
+		}
+	}
+
+	&__author {
+		display: flex;
+		align-items: center;
+		margin-top: 2rem;
+		margin-left: 2rem;
+
+		&__image {
+			width: 60px;
+			height: 60px;
+			border-radius: $border-radius-circle;
+			object-fit: cover;
+			margin-right: 1rem;
+			border: 3px solid $primary-light;
+		}
+
+		&__info {
+			&__name {
+				margin-bottom: 0.2rem;
+			}
+
+			&__position {
+				color: $gray-color;
+				margin-bottom: 0;
+			}
+		}
+	}
+}

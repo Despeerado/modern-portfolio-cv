@@ -1,0 +1,55 @@
+/**
+ * Proměnné pro celý projekt
+ */
+
+// Základní barvy
+$primary-color: #4a89dc; // modrá kompatibilní s gradientem
+$primary-light: #5d9cec; // světlejší modrá
+$primary-dark: #3a7bd5; // tmavší modrá
+$secondary-color: #17a2b8; // tyrkysová
+$accent-color-1: #36d7b7; // mátová
+$accent-color-2: #ffce54; // jantarová/žlutá
+$accent-color-3: #fc6e51; // oranžová/korálová
+$accent-color-4: #7986cb; // indigo
+$dark-color: #343a40;
+$light-color: #f8f9fa;
+$gray-color: #6c757d;
+$gray-light: #e9ecef;
+$success-color: #28a745;
+
+// Glassmorphism
+$glass-bg: rgba(255, 255, 255, 0.25);
+$glass-bg-dark: rgba(0, 0, 0, 0.25);
+$glass-border: 1px solid rgba(255, 255, 255, 0.18);
+$glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+$glass-blur: blur(8px);
+$glass-border-radius: 15px;
+
+// Stíny
+$box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+$box-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+// Přechody
+$transition: all 0.3s ease;
+
+// Spacing
+$section-padding: 100px 0;
+$section-title-margin: 60px;
+
+// Font weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Border radius
+$border-radius-small: 5px;
+$border-radius-medium: 10px;
+$border-radius-large: 20px;
+$border-radius-circle: 50%;
+
+// Breakpoints
+$breakpoint-sm: 575.98px;
+$breakpoint-md: 767.98px;
+$breakpoint-lg: 991.98px;
+$breakpoint-xl: 1199.98px;

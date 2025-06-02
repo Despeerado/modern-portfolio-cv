@@ -1,0 +1,29 @@
+/**
+ * O mně sekce
+ */
+
+.about {
+	&__section {
+		background-color: $light-color;
+	}
+
+	&__content {
+		&__title {
+			font-size: 2rem;
+			margin-bottom: 1.5rem;
+
+			&__highlight {
+				color: $primary-color;
+			}
+		}
+
+		&__text {
+			color: $gray-color;
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	&__counters-row {
+		margin-bottom: 2rem;
+	}
+}

@@ -1,0 +1,33 @@
+/**
+ * Reset a základní styly
+ */
+
+:root {
+	// Základní barvy
+	--primary-color: #{$primary-color};
+	--primary-light: #{$primary-light};
+	--primary-dark: #{$primary-dark};
+	--secondary-color: #{$secondary-color};
+	--dark-color: #{$dark-color};
+	--light-color: #{$light-color};
+	--gray-color: #{$gray-color};
+	--gray-light: #{$gray-light};
+	--success-color: #{$success-color};
+
+	// Stíny
+	--box-shadow: #{$box-shadow};
+	--box-shadow-hover: #{$box-shadow-hover};
+
+	// Přechody
+	--transition: #{$transition};
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}

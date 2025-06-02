@@ -1,0 +1,47 @@
+/**
+ * Main Sass soubor pro online životopis/portfolio
+ * Autor: Vaše jméno
+ * Datum: 2. června 2025
+ */
+
+// Abstracts
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
+
+// Vendors (třetí strany, jako Bootstrap přizpůsobení)
+@import 'vendors/bootstrap';
+
+// Base
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/utilities';
+
+// Layout
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/footer';
+
+// Components
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/sections';
+@import 'components/forms';
+@import 'components/carousel';
+@import 'components/icons';
+
+// Pages (specifické styly pro konkrétní sekce)
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/portfolio';
+@import 'pages/services';
+@import 'pages/testimonials';
+@import 'pages/process';
+@import 'pages/blog';
+@import 'pages/contact';
+
+// Themes
+@import 'themes/dark-mode';
+
+// Responsivní styly
+@import 'abstracts/responsive';

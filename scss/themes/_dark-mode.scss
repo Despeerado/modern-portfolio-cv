@@ -1,0 +1,50 @@
+/**
+ * Dark Mode
+ */
+
+body.dark-mode {
+	background-color: $dark-color;
+	color: $light-color;
+
+	.skill__box,
+	.counter__box,
+	.service__card,
+	.blog__card,
+	.contact__form,
+	.testimonial__content {
+		background-color: #2d333b;
+		color: $light-color;
+	}
+
+	.skill__box__text,
+	.counter__box__text,
+	.service__card__text,
+	.blog__card__content__text,
+	.section__title p {
+		color: #a0aec0;
+	}
+
+	.blog__card__content__title a {
+		color: $light-color;
+	}
+
+	.testimonial__content::after {
+		background-color: #2d333b;
+	}
+
+	.portfolio__section,
+	.testimonials__section,
+	.blog__section {
+		background-color: #222831;
+	}
+
+	.form__control {
+		background-color: #2d333b;
+		border-color: #444;
+		color: $light-color;
+
+		&::placeholder {
+			color: #a0aec0;
+		}
+	}
+}

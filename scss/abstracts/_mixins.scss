@@ -1,0 +1,124 @@
+/**
+ * Mixiny pro opakované použití
+ */
+
+// Flexbox helper
+@mixin flex($direction: row, $justify: center, $align: center) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+// Absolutní centrování
+@mixin absolute-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+// Přichycení k okraji
+@mixin fixed-position($position: bottom-right, $spacing: 30px) {
+	position: fixed;
+
+	@if $position == bottom-right {
+		bottom: $spacing;
+		right: $spacing;
+	} @else if $position == bottom-left {
+		bottom: $spacing;
+		left: $spacing;
+	} @else if $position == top-right {
+		top: $spacing;
+		right: $spacing;
+	} @else if $position == top-left {
+		top: $spacing;
+		left: $spacing;
+	}
+}
+
+// Kruhový prvek s ikonou
+@mixin circle-icon($size: 60px, $bg-color: $primary-color, $color: $light-color, $font-size: 1.5rem) {
+	width: $size;
+	height: $size;
+	background-color: $bg-color;
+	color: $color;
+	border-radius: $border-radius-circle;
+	@include flex();
+	font-size: $font-size;
+}
+
+// Glassmorphism efekt
+@mixin glassmorphism($dark-mode: false) {
+	@if $dark-mode {
+		background: $glass-bg-dark;
+	} @else {
+		background: $glass-bg;
+	}
+	backdrop-filter: $glass-blur;
+	-webkit-backdrop-filter: $glass-blur;
+	border-radius: $glass-border-radius;
+	border: $glass-border;
+	box-shadow: $glass-shadow;
+}
+
+// Responsivní mixin
+@mixin respond-to($breakpoint) {
+	@if $breakpoint == sm {
+		@media (max-width: $breakpoint-sm) {
+			@content;
+		}
+	} @else if $breakpoint == md {
+		@media (max-width: $breakpoint-md) {
+			@content;
+		}
+	} @else if $breakpoint == lg {
+		@media (max-width: $breakpoint-lg) {
+			@content;
+		}
+	} @else if $breakpoint == xl {
+		@media (max-width: $breakpoint-xl) {
+			@content;
+		}
+	}
+}
+
+// Card styling
+@mixin card-style($padding: 2rem, $bg-color: #fff) {
+	padding: $padding;
+	@include glassmorphism();
+	transition: $transition;
+
+	&:hover {
+		transform: translateY(-5px);
+		box-shadow: $box-shadow-hover;
+	}
+}
+
+// Section title styling
+@mixin section-title {
+	margin-bottom: $section-title-margin;
+
+	h2 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		position: relative;
+		display: inline-block;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -10px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 50px;
+			height: 3px;
+			background-color: $primary-color;
+		}
+	}
+
+	p {
+		color: $gray-color;
+		font-size: 1.1rem;
+	}
+}

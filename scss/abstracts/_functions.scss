@@ -1,0 +1,18 @@
+/**
+ * Pomocné funkce pro Sass
+ */
+
+// Funkce pro převod pixelů na remy
+@function rem($pixels, $context: 16) {
+	@return ($pixels / $context) * 1rem;
+}
+
+// Funkce pro nastavení tmavosti barvy
+@function darken-custom($color, $percentage) {
+	@return darken($color, $percentage);
+}
+
+// Funkce pro nastavení světlosti barvy
+@function lighten-custom($color, $percentage) {
+	@return lighten($color, $percentage);
+}
