@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="cs" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -25,30 +25,48 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm" id="mainNav">
-        <div class="container px-3">
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm" id="mainNav" data-bs-theme="light">
+        <div class="container-fluid px-3">
             <a class="navbar-brand fw-bold text-primary fs-4" href="#page-top">John Doe</a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="d-flex align-items-center order-lg-3">
+                <!-- Bootstrap Color Mode Toggle -->
+                <div class="dropdown me-2">
+                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme">
+                        <i class="fas fa-circle-half-stroke me-1"></i>
+                        <span class="d-none d-sm-inline">Téma</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><button class="dropdown-item" type="button" data-bs-theme-value="light">
+                                <i class="fas fa-sun me-2"></i>Light</button></li>
+                        <li><button class="dropdown-item" type="button" data-bs-theme-value="dark">
+                                <i class="fas fa-moon me-2"></i>Dark</button></li>
+                        <li><button class="dropdown-item" type="button" data-bs-theme-value="auto">
+                                <i class="fas fa-circle-half-stroke me-2"></i>Auto</button></li>
+                    </ul>
+                </div>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse order-lg-2" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link fw-medium text-dark" href="#about">O mně</a>
+                        <a class="nav-link fw-medium" href="#about">O mně</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-medium text-dark" href="#portfolio">Portfolio</a>
+                        <a class="nav-link fw-medium" href="#portfolio">Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-medium text-dark" href="#services">Služby</a>
+                        <a class="nav-link fw-medium" href="#services">Služby</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-medium text-dark" href="#process">Proces</a>
+                        <a class="nav-link fw-medium" href="#process">Proces</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-medium text-dark" href="#contact">Kontakt</a>
+                        <a class="nav-link fw-medium" href="#contact">Kontakt</a>
                     </li>
                 </ul>
             </div>

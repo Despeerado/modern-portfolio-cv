@@ -6,6 +6,68 @@
 
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
+	// Bootstrap Color Mode implementation
+	// Based on: https://getbootstrap.com/docs/5.3/customize/color-modes/
+
+	;(() => {
+		'use strict'
+
+		const getStoredTheme = () => localStorage.getItem('theme')
+		const setStoredTheme = (theme) => localStorage.setItem('theme', theme)
+
+		const getPreferredTheme = () => {
+			const storedTheme = getStoredTheme()
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+		}
+
+		const setTheme = (theme) => {
+			if (theme === 'auto') {
+				const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+				document.documentElement.setAttribute('data-bs-theme', preferredTheme)
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		const showActiveTheme = (theme) => {
+			document.querySelectorAll('[data-bs-theme-value]').forEach((element) => {
+				element.classList.remove('active')
+				element.setAttribute('aria-pressed', 'false')
+			})
+
+			const activeBtn = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+			if (activeBtn) {
+				activeBtn.classList.add('active')
+				activeBtn.setAttribute('aria-pressed', 'true')
+			}
+		}
+
+		// Set initial theme
+		setTheme(getPreferredTheme())
+		showActiveTheme(getPreferredTheme())
+
+		// Listen for system theme changes
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+			const storedTheme = getStoredTheme()
+			if (storedTheme !== 'light' && storedTheme !== 'dark') {
+				setTheme(getPreferredTheme())
+			}
+		})
+
+		// Add click listeners to theme buttons
+		document.querySelectorAll('[data-bs-theme-value]').forEach((toggle) => {
+			toggle.addEventListener('click', () => {
+				const theme = toggle.getAttribute('data-bs-theme-value')
+				setStoredTheme(theme)
+				setTheme(theme)
+				showActiveTheme(theme)
+			})
+		})
+	})()
+
 	// Initialize AOS (Animate On Scroll)
 	// Function to handle AOS animations based on device type
 	function initializeAOS() {
@@ -312,4 +374,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	window.addEventListener('scroll', runCounters)
 	window.addEventListener('load', runCounters)
+
+	// Bootstrap Theme Switching
+	const themeToggle = document.getElementById('theme-toggle')
+	const themeIcon = document.getElementById('theme-icon')
+	const htmlElement = document.documentElement
+
+	// Get stored theme or default to 'light'
+	const getStoredTheme = () => localStorage.getItem('theme')
+	const getPreferredTheme = () => {
+		const storedTheme = getStoredTheme()
+		if (storedTheme) {
+			return storedTheme
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+	}
+
+	// Set theme function
+	const setTheme = (theme) => {
+		htmlElement.setAttribute('data-bs-theme', theme)
+		localStorage.setItem('theme', theme)
+
+		// Update icon
+		if (theme === 'dark') {
+			themeIcon.className = 'fas fa-sun'
+			themeToggle.setAttribute('title', 'Přepnout na světlé téma')
+		} else {
+			themeIcon.className = 'fas fa-moon'
+			themeToggle.setAttribute('title', 'Přepnout na tmavé téma')
+		}
+	}
+
+	// Initialize theme
+	setTheme(getPreferredTheme())
+
+	// Theme toggle event listener
+	themeToggle.addEventListener('click', () => {
+		const currentTheme = htmlElement.getAttribute('data-bs-theme')
+		const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+		setTheme(newTheme)
+	})
+
+	// Listen for system theme changes
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+		const storedTheme = getStoredTheme()
+		if (!storedTheme) {
+			setTheme(getPreferredTheme())
+		}
+	})
 })
