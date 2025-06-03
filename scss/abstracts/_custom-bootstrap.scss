@@ -1,0 +1,32 @@
+// 💡 Přepiš výchozí Bootstrap proměnné před importem Bootstrapu
+
+// Barevná paleta
+$theme-colors: (
+	'primary': #a7c957,
+	'secondary': #bc4749,
+	'light': #f2e8cf,
+	'dark': #386641,
+	'custom-green': #6a994e,
+);
+
+// Přepínání barevných módů – použij "data" pro data atribut nebo "media" pro automatiku
+$color-mode-type: data;
+
+// ⚙️ Světlé barvy
+$theme-colors-light: (
+	'body-bg': #ffffff,
+	'body-color': #1f1f1f,
+	'primary': #a7c957,
+	'secondary': #bc4749,
+);
+
+// 🌑 Tmavé barvy
+$theme-colors-dark: (
+	'body-bg': #1b1f24,
+	'body-color': #f2e8cf,
+	'primary': #a7c957,
+	'secondary': #bc4749,
+);
+
+// Import celého Bootstrapu
+@import '../../node_modules/bootstrap/scss/bootstrap';
