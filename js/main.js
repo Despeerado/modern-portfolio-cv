@@ -413,105 +413,6 @@ const FormManager = (() => {
 })()
 
 /**
- * Legacy Dark Mode Manager (Deprecated - keeping for compatibility)
- * This will be removed in favor of Bootstrap Color Mode
- */
-const LegacyDarkModeManager = (() => {
-	const createDarkModeToggle = () => {
-		const darkModeToggle = document.createElement('div')
-		darkModeToggle.className = 'dark-mode-toggle'
-		darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>'
-		document.body.appendChild(darkModeToggle)
-		return darkModeToggle
-	}
-
-	const setupLegacyThemeToggle = () => {
-		const themeToggle = document.getElementById('theme-toggle')
-		const themeIcon = document.getElementById('theme-icon')
-		const htmlElement = document.documentElement
-
-		if (!themeToggle || !themeIcon) return
-
-		// Get stored theme or default to 'light'
-		const getStoredTheme = () => localStorage.getItem('theme')
-		const getPreferredTheme = () => {
-			const storedTheme = getStoredTheme()
-			if (storedTheme) {
-				return storedTheme
-			}
-			return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-		}
-
-		// Set theme function
-		const setTheme = (theme) => {
-			htmlElement.setAttribute('data-bs-theme', theme)
-			localStorage.setItem('theme', theme)
-
-			// Update icon
-			if (theme === 'dark') {
-				themeIcon.className = 'fas fa-sun'
-				themeToggle.setAttribute('title', 'Přepnout na světlé téma')
-			} else {
-				themeIcon.className = 'fas fa-moon'
-				themeToggle.setAttribute('title', 'Přepnout na tmavé téma')
-			}
-		}
-
-		// Initialize theme
-		setTheme(getPreferredTheme())
-
-		// Theme toggle event listener
-		themeToggle.addEventListener('click', () => {
-			const currentTheme = htmlElement.getAttribute('data-bs-theme')
-			const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
-			setTheme(newTheme)
-		})
-
-		// Listen for system theme changes
-		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-			const storedTheme = getStoredTheme()
-			if (!storedTheme) {
-				setTheme(getPreferredTheme())
-			}
-		})
-	}
-
-	return {
-		init() {
-			// Create legacy dark mode toggle (if needed)
-			const darkModeToggle = createDarkModeToggle()
-
-			// Check if user previously set dark mode
-			const isDarkMode = localStorage.getItem('darkMode') === 'true'
-
-			// Set initial state
-			if (isDarkMode) {
-				document.body.classList.add('dark-mode')
-				darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'
-			}
-
-			// Toggle dark mode on click
-			darkModeToggle.addEventListener('click', () => {
-				document.body.classList.toggle('dark-mode')
-
-				const isDarkModeNow = document.body.classList.contains('dark-mode')
-				localStorage.setItem('darkMode', isDarkModeNow)
-
-				// Change icon
-				if (isDarkModeNow) {
-					darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'
-				} else {
-					darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>'
-				}
-			})
-
-			// Setup legacy theme toggle
-			setupLegacyThemeToggle()
-		},
-	}
-})()
-
-/**
  * Main Application Controller
  * Orchestrates all managers and initializes the application
  */
@@ -524,7 +425,6 @@ const App = (() => {
 			NavigationManager.init()
 			UIComponentsManager.init()
 			FormManager.init()
-			LegacyDarkModeManager.init()
 		},
 	}
 })()
