@@ -28,6 +28,7 @@
 @import 'components/forms';
 @import 'components/carousel';
 @import 'components/icons';
+@import 'components/timeline';
 
 // Pages (specifické styly pro konkrétní sekce)
 @import 'pages/home';
@@ -39,5 +40,4 @@
 @import 'pages/blog';
 @import 'pages/contact';
 
-// Themes
-@import 'themes/dark-mode';
+// Themes - dark mode removed

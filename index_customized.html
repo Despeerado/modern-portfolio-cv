@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online životopis</title>
+    <title>Můj online životopis | Portfolio</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -16,9 +16,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Google Fonts - Petrona pro nadpisy, Karla pro texty -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- AOS CSS - pro animace při scrollování -->
@@ -32,8 +31,23 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top shadow-sm " id="mainNav" data-bs-theme="light">
         <div class="container px-3">
-            <a class="navbar-brand fw-bold  fs-4" href="#page-top">Karel Omáčka</a>
+            <a class="navbar-brand fw-bold  fs-4" href="#page-top">Martin VášFrontend</a>
             <div class="d-flex align-items-center order-lg-3">
+                <!-- Bootstrap Color Mode Toggle -->
+                <div class="dropdown me-2">
+                    <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" aria-label="Toggle theme">
+                        <i class="fas fa-circle-half-stroke me-1"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><button class="dropdown-item" type="button" data-bs-theme-value="light">
+                                <i class="fas fa-sun me-2"></i>Light</button></li>
+                        <li><button class="dropdown-item" type="button" data-bs-theme-value="dark">
+                                <i class="fas fa-moon me-2"></i>Dark</button></li>
+                        <li><button class="dropdown-item" type="button" data-bs-theme-value="auto">
+                                <i class="fas fa-circle-half-stroke me-2"></i>Auto</button></li>
+                    </ul>
+                </div>
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -48,7 +62,15 @@
                     <li class="nav-item">
                         <a class="nav-link fw-medium" href="#experience">Zkušenosti</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="#services">Služby</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium" href="#process">Proces</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link fw-medium" href="#contact">Kontakt</a>
                     </li>
@@ -63,9 +85,9 @@
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
                     <div data-aos="fade-right">
-                        <h1 class="display-6 display-md-4 fw-bold  mb-3">Karel Omáčka</h1>
-                        <h2 class="h4 h3-md  mb-3">Frontend vývojář</h2>
-                        <p class="lead text-muted mb-4 px-2 px-md-0">... a se smyslem pro humor.</p>
+                        <h1 class="display-6 display-md-4 fw-bold  mb-3">Martin VášFrontend</h1>
+                        <h2 class="h4 h3-md  mb-3">Frontend vývojář & CSS stylař</h2>
+                        <p class="lead text-muted mb-4 px-2 px-md-0">Hledám novou pracovní příležitost.</p>
                         <div
                             class="d-grid d-sm-flex gap-2 gap-sm-3 justify-content-center justify-content-lg-start mb-4">
                             <a href="#contact" class="btn btn-primary btn-lg">Kontakt</a>
@@ -100,11 +122,11 @@
                 </div>
             </div>
             <div class="row align-items-center">
-                <div class="col-12 mb-4 mb-lg-0" data-aos="fade-right">
+                <div class="col-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
                     <div class="px-2">
-                        <h3 class="h4 fw-bold  mb-3">Ahoj, jsem <span class="">Karel</span>
+                        <h3 class="h4 fw-bold  mb-3">Ahoj, jsem <span class="">Martin</span>
                         </h3>
-                        <p class="text-muted mb-0">
+                        <p class="text-muted mb-3">
                             Jsem frontend vývojář se zaměřením na kvalitní stylování, Sass, přehledný kód a UX.
                             Baví mě přemýšlet nad detaily – od gridu až po barvy.
                         </p>
@@ -115,7 +137,28 @@
                         </p>
                     </div>
                 </div>
-
+                <div class="col-12 col-lg-6" data-aos="fade-left">
+                    <div class="row g-3 text-center">
+                        <div class="col-6 col-md-4">
+                            <div class="p-3">
+                                <h3 class="display-6 fw-bold  counter">2</h3>
+                                <p class="small text-muted mb-0">roky zkušeností</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="p-3">
+                                <h3 class="display-6 fw-bold  counter">5+</h3>
+                                <p class="small text-muted mb-0">Dokončených projektů</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="p-3">
+                                <h3 class="display-6 fw-bold  counter">Mnoho</h3>
+                                <p class="small text-muted mb-0">Spokojených klientů</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row mt-5 g-3 g-lg-4">
 
@@ -151,13 +194,15 @@
                 </div>
                 </i>
             </div>
-
+            <h4 class="h5 fw-bold  mb-3">SEO Optimalizace</h4>
+            <p class="text-muted">Optimalizuji webové stránky pro vyhledávače, aby se zvýšila jejich
+                viditelnost a organická
+                návštěvnost.</p>
         </div>
         </div>
         </div>
         </div>
     </section>
-
 
     <!-- Skills Section -->
     <section id="skills" class="py-5 bg-light">
@@ -177,11 +222,15 @@
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <img src="images/logo_html.svg" alt="HTML5" style="height: 3rem;" class="me-2">
-                                <img src="images/logo_css3.svg" alt="CSS3" style="height: 3rem;">
+                                <i class="fab fa-html5 text-danger" style="font-size: 3rem;"></i>
+                                <i class="fab fa-css3-alt text-primary ms-2" style="font-size: 3rem;"></i>
                             </div>
                             <h5 class="fw-bold text-dark mb-3">HTML5 & CSS3</h5>
-                            <p class="text-muted mb-0">Semantický HTML a moderní CSS včetně Flexbox, Grid a animací</p>
+                            <p class="text-muted mb-3">Semantický HTML a moderní CSS včetně Flexbox, Grid a animací</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 95%"></div>
+                            </div>
+                            <small class="text-muted">Pokročilá úroveň</small>
                         </div>
                     </div>
                 </div>
@@ -193,7 +242,27 @@
                                 <i class="fab fa-js-square text-warning" style="font-size: 3rem;"></i>
                             </div>
                             <h5 class="fw-bold text-dark mb-3">JavaScript ES6+</h5>
-                            <p class="text-muted mb-0">Moderní JavaScript včetně async/await, destructuring, modules</p>
+                            <p class="text-muted mb-3">Moderní JavaScript včetně async/await, destructuring, modules</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 90%"></div>
+                            </div>
+                            <small class="text-muted">Pokročilá úroveň</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <i class="fab fa-vuejs text-success" style="font-size: 3rem;"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-3">Vue.js</h5>
+                            <p class="text-muted mb-3">Composition API, Vuex, Vue Router pro SPA aplikace</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 80%"></div>
+                            </div>
+                            <small class="text-muted">Střední úroveň</small>
                         </div>
                     </div>
                 </div>
@@ -202,10 +271,14 @@
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <img src="images/logo_sass.svg" alt="Sass/SCSS" style="height: 3rem;">
+                                <i class="fab fa-sass text-primary" style="font-size: 3rem;"></i>
                             </div>
                             <h5 class="fw-bold text-dark mb-3">Sass/SCSS</h5>
-                            <p class="text-muted mb-0">CSS preprocessor, mixins, variables, nested rules</p>
+                            <p class="text-muted mb-3">CSS preprocessor, mixins, variables, nested rules</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 88%"></div>
+                            </div>
+                            <small class="text-muted">Pokročilá úroveň</small>
                         </div>
                     </div>
                 </div>
@@ -217,7 +290,12 @@
                                 <i class="fab fa-bootstrap text-purple" style="font-size: 3rem; color: #7952b3;"></i>
                             </div>
                             <h5 class="fw-bold text-dark mb-3">Bootstrap 5</h5>
-                            <p class="text-muted mb-0">Responzivní framework, utility classes, komponenty</p>
+                            <p class="text-muted mb-3">Responzivní framework, utility classes, komponenty</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar" role="progressbar"
+                                    style="width: 92%; background-color: #7952b3;"></div>
+                            </div>
+                            <small class="text-muted">Pokročilá úroveň</small>
                         </div>
                     </div>
                 </div>
@@ -230,25 +308,15 @@
                                     style="height: 48px; width: auto; max-width: 120px;">
                             </div>
                             <h5 class="fw-bold text-dark mb-3">Shoptet</h5>
-                            <p class="text-muted mb-0">E-commerce platforma, custom témata, Smarty templating</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="800">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body text-center p-4">
-                            <div class="mb-3">
-                                <img src="images/logo_tailwind.svg" alt="Tailwind CSS" style="height: 3rem;">
+                            <p class="text-muted mb-3">E-commerce platforma, custom témata, Smarty templating</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 82%"></div>
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">Tailwind CSS</h5>
-                            <p class="text-muted mb-0">Utility-first CSS framework pro rychlé prototypování</p>
+                            <small class="text-muted">Střední úroveň</small>
                         </div>
                     </div>
                 </div>
             </div>
-
-
 
             <!-- Learning Technologies -->
             <div class="row mt-5">
@@ -269,8 +337,12 @@
                                 <i class="fab fa-react text-info" style="font-size: 3rem;"></i>
                             </div>
                             <h5 class="fw-bold text-dark mb-3">React.js</h5>
-                            <p class="text-muted mb-0">Komponenty, Hooks, Context API - postupně se učím moderní
+                            <p class="text-muted mb-3">Komponenty, Hooks, Context API - postupně se učím moderní
                                 přístupy</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 60%"></div>
+                            </div>
+                            <small class="text-muted">Učím se</small>
                         </div>
                     </div>
                 </div>
@@ -283,8 +355,12 @@
                                 <i class="fab fa-node-js text-success" style="font-size: 3rem;"></i>
                             </div>
                             <h5 class="fw-bold text-dark mb-3">Node.js</h5>
-                            <p class="text-muted mb-0">Backend development, Express.js, REST API - rozšiřuji do
+                            <p class="text-muted mb-3">Backend development, Express.js, REST API - rozšiřuji do
                                 fullstack vývoje</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 45%"></div>
+                            </div>
+                            <small class="text-muted">Začátečník</small>
                         </div>
                     </div>
                 </div>
@@ -294,11 +370,15 @@
                     <div class="card border-0 shadow-sm h-100 bg-light-subtle">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <img src="images/logo_typescript.svg" alt="TypeScript" style="height: 3rem;">
+                                <i class="fab fa-js-square text-primary" style="font-size: 3rem;"></i>
                             </div>
                             <h5 class="fw-bold text-dark mb-3">TypeScript</h5>
-                            <p class="text-muted mb-0">Typový systém pro JavaScript - zlepšuji kvalitu kódu a vývojovou
+                            <p class="text-muted mb-3">Typový systém pro JavaScript - zlepšuji kvalitu kódu a vývojovou
                                 zkušenost</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 55%"></div>
+                            </div>
+                            <small class="text-muted">Učím se</small>
                         </div>
                     </div>
                 </div>
@@ -328,19 +408,19 @@
                 </div>
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="300">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <img src="images/webpack.svg" alt="Webpack" style="height: 2rem;" class="mb-2 mx-auto">
+                        <i class="fas fa-cube text-primary fs-2 mb-2"></i>
                         <p class="small mb-0 fw-medium">Webpack</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="400">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <img src="images/logo_figma.svg" alt="Figma" style="height: 2rem;" class="mb-2 mx-auto">
+                        <i class="fab fa-figma text-purple fs-2 mb-2" style="color: #F24E1E;"></i>
                         <p class="small mb-0 fw-medium">Figma</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="500">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <img src="images/logo_vscode.svg" alt="VS Code" style="height: 2rem;" class="mb-2 mx-auto">
+                        <i class="fas fa-code text-info fs-2 mb-2"></i>
                         <p class="small mb-0 fw-medium">VS Code</p>
                     </div>
                 </div>
@@ -352,26 +432,8 @@
                 </div>
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="700">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <img src="images/logo_gitkraken.svg" alt="GitKraken" style="height: 2rem;" class="mb-2 mx-auto">
+                        <i class="fab fa-git-alt text-success fs-2 mb-2"></i>
                         <p class="small mb-0 fw-medium">GitKraken</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="800">
-                    <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <i class="fas fa-images text-warning fs-2 mb-2"></i>
-                        <p class="small mb-0 fw-medium">Slick Slider</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="900">
-                    <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <i class="fas fa-magic text-secondary fs-2 mb-2"></i>
-                        <p class="small mb-0 fw-medium">AOS</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="1000">
-                    <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <i class="fas fa-arrows-alt-h text-danger fs-2 mb-2"></i>
-                        <p class="small mb-0 fw-medium">Flickity</p>
                     </div>
                 </div>
             </div>
@@ -392,11 +454,15 @@
                     <div class="card border-0 shadow-sm h-100 bg-primary-subtle">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <img src="images/logo_copilot.svg" alt="GitHub Copilot" style="height: 3rem;">
+                                <i class="fab fa-github text-dark" style="font-size: 3rem;"></i>
                             </div>
                             <h5 class="fw-bold text-dark mb-3">GitHub Copilot</h5>
-                            <p class="text-muted mb-0">AI pair programmer pro generování kódu, autocompletování a
+                            <p class="text-muted mb-3">AI pair programmer pro generování kódu, autocompletování a
                                 refactoring</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-dark" role="progressbar" style="width: 85%"></div>
+                            </div>
+                            <small class="text-muted">Pokročilá úroveň</small>
                         </div>
                     </div>
                 </div>
@@ -406,11 +472,33 @@
                     <div class="card border-0 shadow-sm h-100 bg-success-subtle">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <img src="images/logo_chatgpt.svg" alt="ChatGPT" style="height: 3rem;">
+                                <i class="fas fa-robot text-success" style="font-size: 3rem;"></i>
                             </div>
                             <h5 class="fw-bold text-dark mb-3">ChatGPT</h5>
-                            <p class="text-muted mb-0">AI asistent pro řešení problémů, code review a technickou
+                            <p class="text-muted mb-3">AI asistent pro řešení problémů, code review a technickou
                                 dokumentaci</p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 90%"></div>
+                            </div>
+                            <small class="text-muted">Pokročilá úroveň</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Claude (Anthropic) -->
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card border-0 shadow-sm h-100 bg-info-subtle">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-brain text-info" style="font-size: 3rem;"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-3">Claude</h5>
+                            <p class="text-muted mb-3">AI asistent pro komplexní analýzu kódu a architekturu aplikací
+                            </p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 80%"></div>
+                            </div>
+                            <small class="text-muted">Pokročilá úroveň</small>
                         </div>
                     </div>
                 </div>
@@ -434,41 +522,41 @@
             <!-- Timeline -->
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
-                    <div class="position-relative timeline">
+                    <div class="position-relative">
                         <!-- Timeline Line -->
-                        <div
-                            class="position-absolute start-50 top-0 bottom-0 translate-middle-x d-none d-md-block timeline-line">
+                        <div class="position-absolute start-50 top-0 bottom-0 translate-middle-x d-none d-md-block"
+                            style="width: 2px; background: linear-gradient(to bottom, var(--bs-primary), rgba(var(--bs-primary-rgb), 0.3));">
                         </div>
 
                         <!-- Timeline Items -->
                         <div class="row g-4 g-lg-5">
-
                             <!-- Timeline Item 1 -->
-
-                            <div class="col-12 col-md-6 pe-md-5 timeline-item timeline-left" data-aos="fade-right"
-                                data-aos-delay="100">
+                            <div class="col-12 col-md-6" data-aos="fade-right" data-aos-delay="100">
                                 <div class="d-flex flex-column h-100">
-                                    <div class="card border shadow-sm h-100 position-relative bg-white">
-                                        <div class="position-absolute d-none d-md-block timeline-icon"
-                                            style="width: 50px; height: 50px;">
+                                    <div class="card border-0 shadow-sm h-100 position-relative">
+                                        <!-- Timeline Dot -->
+                                        <div class="position-absolute top-50 translate-middle-y d-none d-md-block"
+                                            style="right: -25px; width: 50px; height: 50px;">
                                             <div
-                                                class="bg-success rounded-circle d-flex align-items-center justify-content-center w-100 h-100 shadow">
-                                                <i class="fas fa-user"></i>
+                                                class="bg-primary rounded-circle d-flex align-items-center justify-content-center w-100 h-100 shadow">
+                                                <i class="fas fa-briefcase"></i>
                                             </div>
                                         </div>
                                         <div class="card-body p-4">
                                             <div class="d-flex align-items-center mb-3">
-                                                <span
-                                                    class="badge bg-success-subtle text-success px-3 py-2 rounded-pill">
-                                                    <i class="fas fa-calendar-alt me-1"></i>2025 – současnost
+                                                <span class="badge bg-primary-subtle  px-3 py-2 rounded-pill">
+                                                    <i class="fas fa-calendar-alt me-1"></i>2023 - současnost
                                                 </span>
                                             </div>
-                                            <h4 class="h5 fw-bold mb-2">open to work – hledám stálou pozici</h4>
+                                            <h4 class="h5 fw-bold  mb-2">Senior Frontend vývojář & CSS stylař</h4>
+                                            <h5 class="h6  mb-3">Tech Company s.r.o.</h5>
+                                            <p class="text-muted mb-3">Vedení frontend týmu a vývoj moderních webových
+                                                aplikací pomocí React, TypeScript a dalších pokročilých technologií.</p>
                                             <div class="d-flex flex-wrap gap-1">
-                                                <span class="badge border">CSS</span>
-                                                <span class="badge border">JavaScript</span>
-                                                <span class="badge border">Shoptet</span>
-                                                <span class="badge border">Figma</span>
+                                                <span class="badge   border">React</span>
+                                                <span class="badge   border">TypeScript</span>
+                                                <span class="badge   border">Next.js</span>
+                                                <span class="badge   border">GraphQL</span>
                                             </div>
                                         </div>
                                     </div>
@@ -476,13 +564,12 @@
                             </div>
 
                             <!-- Timeline Item 2 -->
-                            <div class="col-12 col-md-6 offset-md-6 ps-md-5 timeline-item timeline-right"
-                                data-aos="fade-left" data-aos-delay="200">
+                            <div class="col-12 col-md-6 offset-md-6" data-aos="fade-left" data-aos-delay="200">
                                 <div class="d-flex flex-column h-100">
-                                    <div class="card border shadow-sm h-100 position-relative bg-white">
+                                    <div class="card border-0 shadow-sm h-100 position-relative">
                                         <!-- Timeline Dot -->
-                                        <div class="position-absolute d-none d-md-block timeline-icon"
-                                            style="width: 50px; height: 50px;">
+                                        <div class="position-absolute top-50 translate-middle-y d-none d-md-block"
+                                            style="left: -25px; width: 50px; height: 50px;">
                                             <div
                                                 class="bg-success rounded-circle d-flex align-items-center justify-content-center w-100 h-100 shadow">
                                                 <i class="fas fa-code"></i>
@@ -492,18 +579,19 @@
                                             <div class="d-flex align-items-center mb-3">
                                                 <span
                                                     class="badge bg-success-subtle text-success px-3 py-2 rounded-pill">
-                                                    <i class="fas fa-calendar-alt me-1"></i>2025 - současnost
+                                                    <i class="fas fa-calendar-alt me-1"></i>2021 - 2023
                                                 </span>
                                             </div>
-                                            <h4 class="h5 fw-bold  mb-2">Frontend developer (Freelance)</h4>
-                                            <h5 class="h6 text-success mb-3">Tvůj Brand, s.r.o.</h5>
-                                            <p class="text-muted mb-3">Úpravy na Shoptet eshopech. Spolupráce probíhá
-                                                remote formou s flexibilním zapojením dle aktuálních kapacit.</p>
+                                            <h4 class="h5 fw-bold  mb-2">Frontend vývojář & CSS stylař</h4>
+                                            <h5 class="h6 text-success mb-3">Digital Agency a.s.</h5>
+                                            <p class="text-muted mb-3">Vývoj responzivních webových stránek a e-commerce
+                                                řešení pro různé klienty. Spolupráce s UX/UI designéry na optimalizaci
+                                                uživatelského zážitku.</p>
                                             <div class="d-flex flex-wrap gap-1">
-                                                <span class="badge   border">Shoptet</span>
-                                                <span class="badge   border">SASS</span>
-                                                <span class="badge   border">JavaScript</span>
-                                                <span class="badge   border">jQuery</span>
+                                                <span class="badge   border">Vue.js</span>
+                                                <span class="badge   border">Sass</span>
+                                                <span class="badge   border">Bootstrap</span>
+                                                <span class="badge   border">WordPress</span>
                                             </div>
                                         </div>
                                     </div>
@@ -511,13 +599,12 @@
                             </div>
 
                             <!-- Timeline Item 3 -->
-                            <div class="col-12 col-md-6 pe-md-5 timeline-item timeline-left" data-aos="fade-right"
-                                data-aos-delay="300">
+                            <div class="col-12 col-md-6" data-aos="fade-right" data-aos-delay="300">
                                 <div class="d-flex flex-column h-100">
-                                    <div class="card border shadow-sm h-100 position-relative bg-white">
+                                    <div class="card border-0 shadow-sm h-100 position-relative">
                                         <!-- Timeline Dot -->
-                                        <div class="position-absolute d-none d-md-block timeline-icon"
-                                            style="width: 50px; height: 50px;">
+                                        <div class="position-absolute top-50 translate-middle-y d-none d-md-block"
+                                            style="right: -25px; width: 50px; height: 50px;">
                                             <div
                                                 class="bg-info rounded-circle d-flex align-items-center justify-content-center w-100 h-100 shadow">
                                                 <i class="fas fa-graduation-cap"></i>
@@ -526,23 +613,18 @@
                                         <div class="card-body p-4">
                                             <div class="d-flex align-items-center mb-3">
                                                 <span class="badge bg-info-subtle text-info px-3 py-2 rounded-pill">
-                                                    <i class="fas fa-calendar-alt me-1"></i>2023 - 2025
+                                                    <i class="fas fa-calendar-alt me-1"></i>2019 - 2021
                                                 </span>
                                             </div>
-                                            <h4 class="h5 fw-bold  mb-2">Frontend Developer</h4>
-                                            <h5 class="h6 text-info mb-3">Mime digital, s.r.o.</h5>Kódoval jsem šablony
-                                            na míru Shoptetu, převáděl návrhy z Figmy, upravoval stávající DOM a styly.
-                                            Vytvářel jsem JS funkce, napojoval frontend na API, pracoval se Sass, jQuery
-                                            a Gitem, opravoval bugy a řešil support tickety. Pracovali jsme agilně ve
-                                            scrumu.</p>
+                                            <h4 class="h5 fw-bold  mb-2">Junior Web Developer</h4>
+                                            <h5 class="h6 text-info mb-3">Startup Solutions</h5>
+                                            <p class="text-muted mb-3">Začátky kariéry v oblasti webového vývoje. Učení
+                                                se moderních technologií a získávání zkušeností s různými projekty.</p>
                                             <div class="d-flex flex-wrap gap-1">
-                                                <span class="badge   border">Shoptet</span>
                                                 <span class="badge   border">HTML5</span>
                                                 <span class="badge   border">CSS3</span>
-                                                <span class="badge   border">SASS</span>
                                                 <span class="badge   border">JavaScript</span>
                                                 <span class="badge   border">jQuery</span>
-                                                <span class="badge   border">Figma</span>
                                             </div>
                                         </div>
                                     </div>
@@ -550,13 +632,12 @@
                             </div>
 
                             <!-- Timeline Item 4 -->
-                            <div class="col-12 col-md-6 offset-md-6 ps-md-5 timeline-item timeline-right"
-                                data-aos="fade-left" data-aos-delay="400">
+                            <div class="col-12 col-md-6 offset-md-6" data-aos="fade-left" data-aos-delay="400">
                                 <div class="d-flex flex-column h-100">
-                                    <div class="card border shadow-sm h-100 position-relative bg-white">
+                                    <div class="card border-0 shadow-sm h-100 position-relative">
                                         <!-- Timeline Dot -->
-                                        <div class="position-absolute d-none d-md-block timeline-icon"
-                                            style="width: 50px; height: 50px;">
+                                        <div class="position-absolute top-50 translate-middle-y d-none d-md-block"
+                                            style="left: -25px; width: 50px; height: 50px;">
                                             <div
                                                 class="bg-warning  rounded-circle d-flex align-items-center justify-content-center w-100 h-100 shadow">
                                                 <i class="fas fa-university"></i>
@@ -566,12 +647,20 @@
                                             <div class="d-flex align-items-center mb-3">
                                                 <span
                                                     class="badge bg-warning-subtle text-warning px-3 py-2 rounded-pill">
-                                                    <i class="fas fa-calendar-alt me-1"></i>2012 - 2015
+                                                    <i class="fas fa-calendar-alt me-1"></i>2016 - 2019
                                                 </span>
                                             </div>
-                                            <h4 class="h5 fw-bold  mb-2">Nutriční terapeut</h4>
-                                            <h5 class="h6 text-warning mb-3">SZŠ a vyšší odborná škola zdravotnická,
-                                                Brno</h5>
+                                            <h4 class="h5 fw-bold  mb-2">Bc. Informatika</h4>
+                                            <h5 class="h6 text-warning mb-3">Vysoká škola technická</h5>
+                                            <p class="text-muted mb-3">Bakalářské studium informatiky se zaměřením na
+                                                webové technologie a softwarové inženýrství. Bakalářská práce na téma
+                                                responzivní webový design.</p>
+                                            <div class="d-flex flex-wrap gap-1">
+                                                <span class="badge   border">Java</span>
+                                                <span class="badge   border">Python</span>
+                                                <span class="badge   border">Databáze</span>
+                                                <span class="badge   border">UX/UI</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -580,14 +669,12 @@
 
                         <!-- Timeline End Point -->
                         <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="500">
-                            <div class="bg-white border rounded-3 shadow-sm p-4 mx-auto" style="max-width: 400px;">
-                                <div class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-circle shadow mb-3"
-                                    style="width: 60px; height: 60px;">
-                                    <i class="fas fa-rocket fs-4"></i>
-                                </div>
-                                <h5 class="fw-bold  mb-2">A pokračuji dál...</h5>
-                                <p class="text-muted mb-0">Stále se učím nové technologie a hledám výzvy</p>
+                            <div class="d-inline-flex align-items-center justify-content-center bg-gradient-primary rounded-circle shadow"
+                                style="width: 60px; height: 60px;">
+                                <i class="fas fa-rocket fs-4"></i>
                             </div>
+                            <h5 class="fw-bold  mt-3 mb-2">A pokračuji dál...</h5>
+                            <p class="text-muted">Stále se učím nové technologie a hledám výzvy</p>
                         </div>
                     </div>
                 </div>
@@ -595,8 +682,113 @@
         </div>
     </section>
 
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5 ">
+        <div class="container px-3 px-lg-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center mb-5" data-aos="fade-up">
+                        <h2 class="display-5 fw-bold  mb-3">Portfolio</h2>
+                        <p class="lead text-muted">Podívejte se na moje nejnovější projekty</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 g-lg-4">
+                <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card h-100 shadow-sm border-0 position-relative overflow-hidden portfolio-card">
+                        <img src="images/portfolio/project1.svg" alt="Project 1" class="card-img-top"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end p-0">
+                            <div class=" bg- p-3">
+                                <h5 class="card-title mb-1 h6">Název projektu 1</h5>
+                                <p class="card-text small mb-2">UX/UI Design</p>
+                                <a href="#" class="btn btn-outline-light btn-sm"><i class="fas fa-link me-1"></i>
+                                    Zobrazit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card h-100 shadow-sm border-0 position-relative overflow-hidden portfolio-card">
+                        <img src="images/portfolio/project2.svg" alt="Project 2" class="card-img-top"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end p-0">
+                            <div class=" bg- p-3">
+                                <h5 class="card-title mb-1 h6">Název projektu 2</h5>
+                                <p class="card-text small mb-2">Web Development</p>
+                                <a href="#" class="btn btn-outline-light btn-sm"><i class="fas fa-link me-1"></i>
+                                    Zobrazit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card h-100 shadow-sm border-0 position-relative overflow-hidden portfolio-card">
+                        <img src="images/portfolio/project3.svg" alt="Project 3" class="card-img-top"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end p-0">
+                            <div class=" bg- p-3">
+                                <h5 class="card-title mb-1 h6">Název projektu 3</h5>
+                                <p class="card-text small mb-2">Mobile App</p>
+                                <a href="#" class="btn btn-outline-light btn-sm"><i class="fas fa-link me-1"></i>
+                                    Zobrazit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card h-100 shadow-sm border-0 position-relative overflow-hidden portfolio-card">
+                        <img src="images/portfolio/project4.svg" alt="Project 4" class="card-img-top"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end p-0">
+                            <div class=" bg- p-3">
+                                <h5 class="card-title mb-1 h6">Název projektu 4</h5>
+                                <p class="card-text small mb-2">Branding</p>
+                                <a href="#" class="btn btn-outline-light btn-sm"><i class="fas fa-link me-1"></i>
+                                    Zobrazit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="card h-100 shadow-sm border-0 position-relative overflow-hidden portfolio-card">
+                        <img src="images/portfolio/project5.svg" alt="Project 5" class="card-img-top"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end p-0">
+                            <div class=" bg- p-3">
+                                <h5 class="card-title mb-1 h6">Název projektu 5</h5>
+                                <p class="card-text small mb-2">Web Design</p>
+                                <a href="#" class="btn btn-outline-light btn-sm"><i class="fas fa-link me-1"></i>
+                                    Zobrazit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card h-100 shadow-sm border-0 position-relative overflow-hidden portfolio-card">
+                        <img src="images/portfolio/project6.svg" alt="Project 6" class="card-img-top" <div
+                            class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="text-center h-100">
+                            <div class="position-relative mb-4">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto"
+                                    style="width: 80px; height: 80px;">
+                                    <i class="fas fa-rocket fs-3"></i>
+                                </div>
+                                <div class="position-absolute top-0 start-50 translate-middle bg-primary rounded-circle d-flex align-items-center justify-content-center"
+                                    style="width: 30px; height: 30px; margin-top: -15px;">
+                                    <span class="fw-bold small">04</span>
+                                </div>
+                            </div>
+                            <h4 class="h5 fw-bold  mb-3">Spuštění</h4>
+                            <p class="text-muted">Testování, optimalizace a nasazení projektu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
+    <section id="contact" class="py-5 ">
         <div class="container px-3 px-lg-4">
             <!-- Section Title -->
             <div class="row">
@@ -609,13 +801,26 @@
 
             <div class="row g-4 g-lg-5">
                 <!-- Contact Info -->
-                <div class="glassmorphic-card col-12 col-lg-5 order-lg-1" data-aos="fade-right">
-                    <div class="py-4 h-100">
+                <div class="col-12 col-lg-5 order-lg-1" data-aos="fade-right">
+                    <div class="h-100">
                         <h3 class="h4 fw-bold  mb-3">Kontaktní informace</h3>
                         <p class="text-muted mb-4">Neváhejte mě kontaktovat pro jakékoli dotazy nebo spolupráci.</p>
 
                         <!-- Contact List -->
                         <div class="mb-4">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 50px; height: 50px;">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="h6 fw-bold  mb-1">Adresa</h5>
+                                    <p class="text-muted mb-0">Ulice 123, 123 45 Město, Česká republika</p>
+                                </div>
+                            </div>
+
                             <div class="d-flex align-items-start mb-3">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center"
@@ -670,7 +875,7 @@
 
                 <!-- Contact Form -->
                 <div class="col-12 col-lg-7 order-lg-2" data-aos="fade-left">
-                    <div class="glassmorphic-card card border-0 shadow-sm h-100">
+                    <div class="card border-0 shadow-sm h-100">
                         <div class="card-body p-3 p-lg-4">
                             <form id="contactForm" action="https://formspree.io/f/your-formspree-id" method="POST"
                                 class="needs-validation" novalidate>
@@ -736,18 +941,81 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-light py-5">
+    <footer class="  py-5">
         <div class="container px-3 px-lg-4">
+            <div class="row g-4">
+                <!-- Logo & Description -->
+                <div class="col-12 col-lg-4">
+                    <h3 class="h4 fw-bold  mb-3">Martin VášFrontend</h3>
+                    <p class=" mb-0">Frontend vývojář & stylař</p>
+                    <p class="  small">Pomáhám firmám i freelancerům vytvořit vizuálně doladěné a funkční weby.</p>
+                </div>
 
+                <!-- Quick Links -->
+                <div class="col-12 col-lg-4">
+                    <h4 class="h5 fw-bold  mb-3">Rychlé odkazy</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="#page-top" class=" text-decoration-none  hover-opacity-100">
+                                <i class="fas fa-chevron-right me-2 small "></i>Domů
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#about" class=" text-decoration-none  hover-opacity-100">
+                                <i class="fas fa-chevron-right me-2 small "></i>O mně
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#portfolio" class=" text-decoration-none  hover-opacity-100">
+                                <i class="fas fa-chevron-right me-2 small "></i>Portfolio
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#services" class=" text-decoration-none  hover-opacity-100">
+                                <i class="fas fa-chevron-right me-2 small "></i>Služby
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" class=" text-decoration-none  hover-opacity-100">
+                                <i class="fas fa-chevron-right me-2 small "></i>Kontakt
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div class="col-12 col-lg-4">
+                    <h4 class="h5 fw-bold  mb-3">Sledujte mě</h4>
+                    <div class="d-flex gap-2 mb-3">
+                        <a href="#"
+                            class="btn btn-outline-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 40px; height: 40px;">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#"
+                            class="btn btn-outline-light btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 40px; height: 40px;">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    <p class="  small mb-0">Zůstaňme v kontaktu a sledujte mé nejnovější projekty.
+                    </p>
+                </div>
+            </div>
 
             <!-- Copyright -->
-            <hr class="my-4 border-dark ">
+            <hr class="my-4 border-light opacity-25">
             <div class="row">
                 <div class="col-12">
                     <div class="text-center">
                         <p class="  mb-0">
-                            &copy; 2025 Karel Omáčka. Všechna práva vyhrazena.
-
+                            &copy; 2025 Martin VášFrontend. Všechna práva vyhrazena.
+                            <span class=" mx-2 d-none d-sm-inline">|</span>
+                            <span class="d-block d-sm-inline mt-1 mt-sm-0">
+                                Vytvořeno s
+                                <i class="fas fa-heart text-danger mx-1"></i>
+                                pomocí Bootstrap 5
+                            </span>
                         </p>
                     </div>
                 </div>
@@ -756,9 +1024,8 @@
     </footer>
 
     <!-- Back to top button -->
-    <a href="#"
-        class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle d-none d-flex align-items-center justify-content-center"
-        id="backToTop" style="width: 50px; height: 50px; z-index: 1000;">
+    <a href="#" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle d-none" id="backToTop"
+        style="width: 50px; height: 50px; z-index: 1000;">
         <i class="fas fa-arrow-up"></i>
     </a>
 

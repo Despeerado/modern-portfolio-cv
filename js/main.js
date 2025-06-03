@@ -5,76 +5,7 @@
  * Refactored: Modular structure with separated functions
  */
 
-/**
- * Bootstrap Color Mode Management
- * Handles theme switching functionality
- */
-const ThemeManager = (() => {
-	'use strict'
-
-	// Private methods
-	const getStoredTheme = () => localStorage.getItem('theme')
-	const setStoredTheme = (theme) => localStorage.setItem('theme', theme)
-
-	const getPreferredTheme = () => {
-		const storedTheme = getStoredTheme()
-		if (storedTheme) {
-			return storedTheme
-		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-	}
-
-	const setTheme = (theme) => {
-		if (theme === 'auto') {
-			const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-			document.documentElement.setAttribute('data-bs-theme', preferredTheme)
-		} else {
-			document.documentElement.setAttribute('data-bs-theme', theme)
-		}
-	}
-
-	const showActiveTheme = (theme) => {
-		document.querySelectorAll('[data-bs-theme-value]').forEach((element) => {
-			element.classList.remove('active')
-			element.setAttribute('aria-pressed', 'false')
-		})
-
-		const activeBtn = document.querySelector(`[data-bs-theme-value="${theme}"]`)
-		if (activeBtn) {
-			activeBtn.classList.add('active')
-			activeBtn.setAttribute('aria-pressed', 'true')
-		}
-	}
-
-	const attachEventListeners = () => {
-		// Listen for system theme changes
-		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-			const storedTheme = getStoredTheme()
-			if (storedTheme !== 'light' && storedTheme !== 'dark') {
-				setTheme(getPreferredTheme())
-			}
-		})
-
-		// Add click listeners to theme buttons
-		document.querySelectorAll('[data-bs-theme-value]').forEach((toggle) => {
-			toggle.addEventListener('click', () => {
-				const theme = toggle.getAttribute('data-bs-theme-value')
-				setStoredTheme(theme)
-				setTheme(theme)
-				showActiveTheme(theme)
-			})
-		})
-	}
-
-	// Public interface
-	return {
-		init() {
-			setTheme(getPreferredTheme())
-			showActiveTheme(getPreferredTheme())
-			attachEventListeners()
-		},
-	}
-})()
+// ThemeManager removed - no longer needed without dark mode
 
 /**
  * AOS (Animate On Scroll) Manager
@@ -99,11 +30,11 @@ const AnimationManager = (() => {
 		const { isMobile } = optimizeAnimationsForDevice()
 
 		AOS.init({
-			duration: isMobile ? 600 : 800,
-			easing: 'ease-in-out',
+			duration: isMobile ? 400 : 500,
+			easing: 'ease-out',
 			once: true,
 			disable: false,
-			offset: isMobile ? 30 : 50,
+			offset: isMobile ? 20 : 30,
 			anchorPlacement: 'top-bottom',
 		})
 	}
@@ -420,7 +351,6 @@ const App = (() => {
 	return {
 		init() {
 			// Initialize all managers
-			ThemeManager.init()
 			AnimationManager.init()
 			NavigationManager.init()
 			UIComponentsManager.init()

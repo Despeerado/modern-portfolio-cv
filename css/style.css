@@ -13,6 +13,10 @@
 /**
  * Pomocné funkce pro Sass
  */
+header {
+  background-image: linear-gradient(135deg, #fffaf8 0%, #f2e8cf 100%);
+}
+
 /*!
  * Bootstrap  v5.3.6 (https://getbootstrap.com/)
  * Copyright 2011-2025 The Bootstrap Authors
@@ -43,11 +47,11 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #a7c957;
+  --bs-primary: #76b852;
   --bs-secondary: #bc4749;
   --bs-light: #f2e8cf;
   --bs-dark: #386641;
-  --bs-primary-rgb: 167, 201, 87;
+  --bs-primary-rgb: 118, 184, 82;
   --bs-secondary-rgb: 188, 71, 73;
   --bs-light-rgb: 242, 232, 207;
   --bs-dark-rgb: 56, 102, 65;
@@ -80,7 +84,7 @@
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-family: "Karla", sans-serif;
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
@@ -99,11 +103,11 @@
   --bs-tertiary-bg: #f8f9fa;
   --bs-tertiary-bg-rgb: 248, 249, 250;
   --bs-heading-color: inherit;
-  --bs-link-color: #0d6efd;
-  --bs-link-color-rgb: 13, 110, 253;
+  --bs-link-color: #76b852;
+  --bs-link-color-rgb: 118, 184, 82;
   --bs-link-decoration: underline;
-  --bs-link-hover-color: rgb(10.4, 88, 202.4);
-  --bs-link-hover-color-rgb: 10, 88, 202;
+  --bs-link-hover-color: rgb(83.1004098361, 134.3586065574, 55.1413934426);
+  --bs-link-hover-color-rgb: 83, 134, 55;
   --bs-code-color: #d63384;
   --bs-highlight-color: #212529;
   --bs-highlight-bg: rgb(255, 242.6, 205.4);
@@ -2972,19 +2976,19 @@ textarea.form-control-lg {
 
 .btn-primary {
   --bs-btn-color: #000;
-  --bs-btn-bg: #a7c957;
-  --bs-btn-border-color: #a7c957;
+  --bs-btn-bg: #76b852;
+  --bs-btn-border-color: #76b852;
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: rgb(180.2, 209.1, 112.2);
-  --bs-btn-hover-border-color: rgb(175.8, 206.4, 103.8);
-  --bs-btn-focus-shadow-rgb: 142, 171, 74;
+  --bs-btn-hover-bg: rgb(138.55, 194.65, 107.95);
+  --bs-btn-hover-border-color: rgb(131.7, 191.1, 99.3);
+  --bs-btn-focus-shadow-rgb: 100, 156, 70;
   --bs-btn-active-color: #000;
-  --bs-btn-active-bg: rgb(184.6, 211.8, 120.6);
-  --bs-btn-active-border-color: rgb(175.8, 206.4, 103.8);
+  --bs-btn-active-bg: rgb(145.4, 198.2, 116.6);
+  --bs-btn-active-border-color: rgb(131.7, 191.1, 99.3);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #000;
-  --bs-btn-disabled-bg: #a7c957;
-  --bs-btn-disabled-border-color: #a7c957;
+  --bs-btn-disabled-bg: #76b852;
+  --bs-btn-disabled-border-color: #76b852;
 }
 
 .btn-secondary {
@@ -3039,19 +3043,19 @@ textarea.form-control-lg {
 }
 
 .btn-outline-primary {
-  --bs-btn-color: #a7c957;
-  --bs-btn-border-color: #a7c957;
+  --bs-btn-color: #76b852;
+  --bs-btn-border-color: #76b852;
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #a7c957;
-  --bs-btn-hover-border-color: #a7c957;
-  --bs-btn-focus-shadow-rgb: 167, 201, 87;
+  --bs-btn-hover-bg: #76b852;
+  --bs-btn-hover-border-color: #76b852;
+  --bs-btn-focus-shadow-rgb: 118, 184, 82;
   --bs-btn-active-color: #000;
-  --bs-btn-active-bg: #a7c957;
-  --bs-btn-active-border-color: #a7c957;
+  --bs-btn-active-bg: #76b852;
+  --bs-btn-active-border-color: #76b852;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #a7c957;
+  --bs-btn-disabled-color: #76b852;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #a7c957;
+  --bs-btn-disabled-border-color: #76b852;
   --bs-gradient: none;
 }
 
@@ -3118,7 +3122,7 @@ textarea.form-control-lg {
   --bs-btn-disabled-color: #6c757d;
   --bs-btn-disabled-border-color: transparent;
   --bs-btn-box-shadow: 0 0 0 #000;
-  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-focus-shadow-rgb: 100, 156, 70;
   text-decoration: underline;
 }
 .btn-link:focus-visible {
@@ -4614,7 +4618,7 @@ textarea.form-control-lg {
   --bs-badge-padding-y: 0.35em;
   --bs-badge-font-size: 0.75em;
   --bs-badge-font-weight: 700;
-  --bs-badge-color: #fff;
+  --bs-badge-color: #bc4749;
   --bs-badge-border-radius: var(--bs-border-radius);
   display: inline-block;
   padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
@@ -5481,7 +5485,7 @@ textarea.form-control-lg {
   z-index: var(--bs-tooltip-zindex);
   display: block;
   margin: var(--bs-tooltip-margin);
-  font-family: var(--bs-font-sans-serif);
+  font-family: "Karla", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5591,7 +5595,7 @@ textarea.form-control-lg {
   z-index: var(--bs-popover-zindex);
   display: block;
   max-width: var(--bs-popover-max-width);
-  font-family: var(--bs-font-sans-serif);
+  font-family: "Karla", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6567,8 +6571,8 @@ textarea.form-control-lg {
   text-decoration-color: RGBA(var(--bs-primary-rgb), var(--bs-link-underline-opacity, 1)) !important;
 }
 .link-primary:hover, .link-primary:focus {
-  color: RGBA(185, 212, 121, var(--bs-link-opacity, 1)) !important;
-  text-decoration-color: RGBA(185, 212, 121, var(--bs-link-underline-opacity, 1)) !important;
+  color: RGBA(145, 198, 117, var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(145, 198, 117, var(--bs-link-underline-opacity, 1)) !important;
 }
 
 .link-secondary {
@@ -11513,6 +11517,50 @@ textarea.form-control-lg {
 /**
   * Základní typografie
 */
+body {
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+h1,
+.h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Petrona", serif;
+  font-weight: 600;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+  font-family: "Petrona", serif;
+  font-weight: 700;
+}
+
+.lead {
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+}
+
+.btn {
+  font-family: "Karla", sans-serif;
+  font-weight: 500;
+}
+
 /**
  * Pomocné utility třídy
  */
@@ -11593,12 +11641,9 @@ header__image img:hover {
 .navbar {
   padding: 1rem 0;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #8dc26f, #76b852); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #8dc26f, #76b852); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   position: fixed;
@@ -11768,6 +11813,15 @@ s .back-to-top--active {
 /**
  * Karty a boxy
  */
+.glassmorphic-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(50px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .skill__box {
   padding: 2rem;
   background: rgba(255, 255, 255, 0.25);
@@ -12071,6 +12125,29 @@ s .back-to-top--active {
   transform: scale(1.1);
 }
 
+/**
+ * Timeline komponenta styly
+ */
+.timeline .timeline-item .timeline-icon {
+  top: 2rem !important;
+  transform: translateY(0) !important;
+}
+.timeline .timeline-item.timeline-left .timeline-icon {
+  right: -25px;
+}
+.timeline .timeline-item.timeline-right .timeline-icon {
+  left: -25px;
+}
+.timeline .timeline-line {
+  width: 2px;
+  background: linear-gradient(to bottom, var(--bs-primary), rgba(var(--bs-primary-rgb), 0.3));
+}
+
+@media (max-width: 767.98px) {
+  .timeline .timeline-item .timeline-icon {
+    display: none !important;
+  }
+}
 /**
  * Domovská sekce - nadsekce pro všechny komponenty
  */
@@ -12393,47 +12470,5 @@ s .back-to-top--active {
 /**
  * Kontakt sekce
  */
-/**
- * Dark Mode
- */
-body.dark-mode {
-  background-color: #343a40;
-  color: #f8f9fa;
-}
-body.dark-mode .skill__box,
-body.dark-mode .counter__box,
-body.dark-mode .service__card,
-body.dark-mode .blog__card,
-body.dark-mode .contact__form,
-body.dark-mode .testimonial__content {
-  background-color: #2d333b;
-  color: #f8f9fa;
-}
-body.dark-mode .skill__box__text,
-body.dark-mode .counter__box__text,
-body.dark-mode .service__card__text,
-body.dark-mode .blog__card__content__text,
-body.dark-mode .section__title p {
-  color: #a0aec0;
-}
-body.dark-mode .blog__card__content__title a {
-  color: #f8f9fa;
-}
-body.dark-mode .testimonial__content::after {
-  background-color: #2d333b;
-}
-body.dark-mode .portfolio__section,
-body.dark-mode .testimonials__section,
-body.dark-mode .blog__section {
-  background-color: #222831;
-}
-body.dark-mode .form__control {
-  background-color: #2d333b;
-  border-color: #444;
-  color: #f8f9fa;
-}
-body.dark-mode .form__control::placeholder {
-  color: #a0aec0;
-}
 
 /*# sourceMappingURL=style.css.map */

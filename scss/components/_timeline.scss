@@ -1,0 +1,38 @@
+/**
+ * Timeline komponenta styly
+ */
+
+.timeline {
+	.timeline-item {
+		.timeline-icon {
+			// Pozicování ikon relativně k horní části karty místo středu
+			top: 2rem !important; // Přesune ikonu k horní části karty
+			transform: translateY(0) !important; // Odstraní vertikální centrování
+		}
+
+		// Levé karty
+		&.timeline-left .timeline-icon {
+			right: -25px;
+		}
+
+		// Pravé karty
+		&.timeline-right .timeline-icon {
+			left: -25px;
+		}
+	}
+
+	// Timeline linka - zajistí správnou výšku
+	.timeline-line {
+		width: 2px;
+		background: linear-gradient(to bottom, var(--bs-primary), rgba(var(--bs-primary-rgb), 0.3));
+	}
+}
+
+// Responzivní úpravy
+@media (max-width: 767.98px) {
+	.timeline {
+		.timeline-item .timeline-icon {
+			display: none !important;
+		}
+	}
+}
