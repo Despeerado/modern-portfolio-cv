@@ -255,3 +255,123 @@ footer a {
 footer .text-light.opacity-75 {
   transition: opacity 0.3s ease;
 }
+
+/* Timeline Section Styles */
+#experience .timeline-line {
+  background: linear-gradient(to bottom, var(--bs-primary), rgba(var(--bs-primary-rgb), 0.3));
+  position: relative;
+}
+
+#experience .timeline-line::before,
+#experience .timeline-line::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--bs-primary);
+  border-radius: 50%;
+}
+
+#experience .timeline-line::before {
+  top: -4px;
+}
+
+#experience .timeline-line::after {
+  bottom: -4px;
+}
+
+/* Timeline Card Hover Effects */
+#experience .card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(var(--bs-primary-rgb), 0.1) !important;
+}
+
+#experience .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(var(--bs-primary-rgb), 0.15) !important;
+  border-color: rgba(var(--bs-primary-rgb), 0.2) !important;
+}
+
+/* Timeline Dot Animation */
+#experience .timeline-dot {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#experience .card:hover + .timeline-dot,
+#experience .timeline-dot:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(var(--bs-primary-rgb), 0.3);
+}
+
+/* Badge enhancements */
+#experience .badge {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Mobile Timeline Optimizations */
+@media (max-width: 768px) {
+  #experience .timeline-line {
+    display: none !important;
+  }
+  
+  #experience .card {
+    margin-bottom: 2rem;
+  }
+  
+  #experience .timeline-dot {
+    position: relative !important;
+    right: auto !important;
+    left: auto !important;
+    margin: 0 auto 1rem auto;
+    display: flex;
+  }
+}
+
+/* Dark Mode Timeline Styles */
+[data-bs-theme="dark"] #experience .timeline-line {
+  background: linear-gradient(to bottom, var(--bs-primary), rgba(var(--bs-primary-rgb), 0.2));
+}
+
+[data-bs-theme="dark"] #experience .card {
+  background-color: var(--bs-gray-900) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-bs-theme="dark"] #experience .card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(var(--bs-primary-rgb), 0.3) !important;
+}
+
+[data-bs-theme="dark"] #experience .badge.bg-light {
+  background-color: var(--bs-gray-800) !important;
+  color: var(--bs-gray-300) !important;
+  border-color: var(--bs-gray-700) !important;
+}
+
+/* Timeline End Point Animation */
+#experience .bg-gradient-primary {
+  background: linear-gradient(45deg, var(--bs-primary), var(--bs-info)) !important;
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from {
+    box-shadow: 0 4px 15px rgba(var(--bs-primary-rgb), 0.3);
+  }
+  to {
+    box-shadow: 0 8px 25px rgba(var(--bs-primary-rgb), 0.5), 0 0 30px rgba(var(--bs-primary-rgb), 0.2);
+  }
+}
+
+/* Subtle border radius enhancement */
+#experience .card {
+  border-radius: 1rem !important;
+}
+
+#experience .badge {
+  border-radius: 0.75rem !important;
+}
