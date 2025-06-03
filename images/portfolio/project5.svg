@@ -1,0 +1,35 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#grad5)"/>
+  
+  <!-- Brand identity elements -->
+  <circle cx="120" cy="80" r="30" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+  <circle cx="120" cy="80" r="15" fill="rgba(255,255,255,0.5)"/>
+  
+  <rect x="200" y="60" width="150" height="40" rx="8" fill="rgba(255,255,255,0.2)"/>
+  <rect x="210" y="70" width="100" height="8" rx="4" fill="rgba(255,255,255,0.4)"/>
+  <rect x="210" y="85" width="80" height="6" rx="3" fill="rgba(255,255,255,0.3)"/>
+  
+  <!-- Color palette -->
+  <circle cx="80" cy="150" r="15" fill="#ff6b6b"/>
+  <circle cx="120" cy="150" r="15" fill="#4ecdc4"/>
+  <circle cx="160" cy="150" r="15" fill="#45b7d1"/>
+  <circle cx="200" cy="150" r="15" fill="#96ceb4"/>
+  <circle cx="240" cy="150" r="15" fill="#feca57"/>
+  
+  <!-- Typography samples -->
+  <rect x="80" y="200" width="120" height="12" rx="6" fill="rgba(0,0,0,0.2)"/>
+  <rect x="80" y="220" width="100" height="8" rx="4" fill="rgba(0,0,0,0.15)"/>
+  <rect x="80" y="235" width="80" height="8" rx="4" fill="rgba(0,0,0,0.15)"/>
+  
+  <rect x="220" y="200" width="100" height="12" rx="6" fill="rgba(0,0,0,0.2)"/>
+  <rect x="220" y="220" width="80" height="8" rx="4" fill="rgba(0,0,0,0.15)"/>
+  <rect x="220" y="235" width="60" height="8" rx="4" fill="rgba(0,0,0,0.15)"/>
+  
+  <text x="200" y="280" text-anchor="middle" fill="rgba(0,0,0,0.7)" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Brand Identity</text>
+</svg>

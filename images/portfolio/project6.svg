@@ -1,0 +1,41 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d299c2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fef9d7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#grad6)"/>
+  
+  <!-- UX/UI Design mockup -->
+  <rect x="50" y="40" width="300" height="220" rx="12" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+  
+  <!-- Header -->
+  <rect x="70" y="60" width="260" height="30" rx="6" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="85" cy="75" r="6" fill="rgba(255,255,255,0.5)"/>
+  <rect x="100" y="70" width="80" height="10" rx="5" fill="rgba(255,255,255,0.4)"/>
+  <rect x="280" y="70" width="40" height="10" rx="5" fill="rgba(255,255,255,0.4)"/>
+  
+  <!-- Content sections -->
+  <rect x="70" y="110" width="120" height="80" rx="8" fill="rgba(255,255,255,0.2)"/>
+  <rect x="210" y="110" width="120" height="80" rx="8" fill="rgba(255,255,255,0.2)"/>
+  
+  <circle cx="130" cy="135" r="12" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="270" cy="135" r="12" fill="rgba(255,255,255,0.4)"/>
+  
+  <rect x="85" y="155" width="90" height="6" rx="3" fill="rgba(255,255,255,0.3)"/>
+  <rect x="225" y="155" width="90" height="6" rx="3" fill="rgba(255,255,255,0.3)"/>
+  
+  <rect x="85" y="165" width="70" height="4" rx="2" fill="rgba(255,255,255,0.25)"/>
+  <rect x="225" y="165" width="70" height="4" rx="2" fill="rgba(255,255,255,0.25)"/>
+  
+  <rect x="85" y="175" width="60" height="4" rx="2" fill="rgba(255,255,255,0.25)"/>
+  <rect x="225" y="175" width="80" height="4" rx="2" fill="rgba(255,255,255,0.25)"/>
+  
+  <!-- Footer -->
+  <rect x="70" y="210" width="260" height="30" rx="6" fill="rgba(255,255,255,0.2)"/>
+  <rect x="85" y="220" width="200" height="6" rx="3" fill="rgba(255,255,255,0.3)"/>
+  <rect x="85" y="230" width="150" height="4" rx="2" fill="rgba(255,255,255,0.25)"/>
+  
+  <text x="200" y="280" text-anchor="middle" fill="rgba(0,0,0,0.7)" font-family="Arial, sans-serif" font-size="14" font-weight="bold">UX/UI Design</text>
+</svg>
