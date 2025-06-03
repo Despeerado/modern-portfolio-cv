@@ -20,7 +20,6 @@
 		}
 
 		&__text {
-			color: $gray-color;
 			margin-bottom: 0;
 		}
 	}
@@ -35,12 +34,10 @@
 
 		&__number {
 			font-size: 2.5rem;
-			color: $primary-color;
 			margin-bottom: 0.5rem;
 		}
 
 		&__text {
-			color: $gray-color;
 			margin-bottom: 0;
 		}
 	}
@@ -54,7 +51,6 @@
 		height: 100%;
 
 		&__icon {
-			@include circle-icon(80px, $primary-light, $light-color, 2rem);
 			margin: 0 auto 1.5rem;
 		}
 
@@ -64,7 +60,6 @@
 		}
 
 		&__text {
-			color: $gray-color;
 			margin-bottom: 0;
 		}
 	}
@@ -100,22 +95,16 @@
 		}
 
 		&__title {
-			color: $light-color;
 			font-size: 1.3rem;
 			margin-bottom: 0.5rem;
 		}
 
 		&__category {
-			color: rgba(255, 255, 255, 0.8);
 			margin-bottom: 1rem;
 		}
 
 		&__link {
-			@include circle-icon(40px, $light-color, $primary-color, 1rem);
-
 			&:hover {
-				background-color: $primary-dark;
-				color: $light-color;
 				transform: translateY(-3px);
 			}
 		}
@@ -161,10 +150,8 @@
 			right: 20px;
 			width: 60px;
 			height: 60px;
-			background-color: $primary-color;
 			border-radius: $border-radius-small;
 			@include flex(column);
-			color: $light-color;
 			font-weight: $font-weight-semibold;
 			text-align: center;
 
@@ -186,17 +173,11 @@
 				margin-bottom: 1rem;
 
 				a {
-					color: $dark-color;
 					transition: $transition;
-
-					&:hover {
-						color: $primary-color;
-					}
 				}
 			}
 
 			&__text {
-				color: $gray-color;
 				margin-bottom: 1.5rem;
 			}
 
@@ -234,13 +215,11 @@
 			transform: translateX(-50%);
 			font-size: 6rem;
 			font-weight: $font-weight-bold;
-			color: rgba($primary-color, 0.1);
 			z-index: -1;
 			line-height: 1;
 		}
 
 		&__icon {
-			@include circle-icon(80px, $primary-light, $light-color, 2rem);
 			margin: 0 auto 1.5rem;
 			position: relative;
 			z-index: 2;
@@ -254,7 +233,6 @@
 		}
 
 		&__text {
-			color: $gray-color;
 			margin-bottom: 0;
 			position: relative;
 			z-index: 2;

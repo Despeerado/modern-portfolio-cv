@@ -3,11 +3,10 @@
  */
 
 footer {
-	background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-	color: $dark-color;
+	// background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+	// color: $dasrk-color;
 	padding: 80px 0 20px;
 	border-radius: 0;
-	margin-top: 50px;
 
 	&__logo {
 		&__title {
@@ -27,7 +26,6 @@ footer {
 			margin-bottom: 1.5rem;
 			position: relative;
 			display: inline-block;
-			color: $dark-color;
 
 			&::after {
 				content: '';
@@ -36,7 +34,6 @@ footer {
 				left: 0;
 				width: 30px;
 				height: 2px;
-				background-color: $primary-color;
 			}
 		}
 	}
@@ -50,11 +47,9 @@ footer {
 				margin-bottom: 0.8rem;
 
 				a {
-					color: $dark-color;
 					transition: $transition;
 
 					&:hover {
-						color: $primary-dark;
 						padding-left: 5px;
 					}
 				}
@@ -81,8 +76,6 @@ footer {
 	@include fixed-position(bottom-right);
 	width: 50px;
 	height: 50px;
-	background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-	color: $dark-color;
 	border-radius: $border-radius-circle;
 	@include flex();
 	font-size: 1.2rem;
@@ -91,15 +84,12 @@ footer {
 	transition: $transition;
 	z-index: 999;
 	box-shadow: $box-shadow;
-
-	&--active {
+	s &--active {
 		opacity: 1;
 		visibility: visible;
 	}
 
 	&:hover {
-		background: linear-gradient(120deg, #83b4fd 0%, #a5dcfb 100%);
-		color: $dark-color;
 		transform: translateY(-3px);
 		box-shadow: $box-shadow-hover;
 	}

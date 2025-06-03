@@ -4,7 +4,6 @@
 
 .testimonials {
 	&__section {
-		background-color: $gray-light;
 	}
 }
 
@@ -14,7 +13,6 @@
 	}
 
 	&__item {
-		background: $light-color;
 		border-radius: $border-radius-medium;
 		@include glassmorphism();
 		transition: $transition;
@@ -36,13 +34,11 @@
 			top: -1rem;
 			left: 0;
 			font-size: 5rem;
-			color: rgba($primary-color, 0.2);
 			font-family: serif;
 			line-height: 1;
 		}
 
 		p {
-			color: $gray-color;
 			font-style: italic;
 			margin-bottom: 1.5rem;
 		}
@@ -74,7 +70,6 @@
 
 		&__role {
 			font-size: 0.9rem;
-			color: $gray-color;
 		}
 	}
 
@@ -82,7 +77,6 @@
 		margin-top: 1rem;
 
 		i {
-			color: $accent-color-2;
 			margin-right: 0.25rem;
 
 			&:last-child {
@@ -95,7 +89,6 @@
 		width: 40px;
 		height: 40px;
 		background: $primary-color;
-		color: $light-color;
 		border-radius: $border-radius-circle;
 		@include flex();
 		position: absolute;
@@ -106,7 +99,6 @@
 		box-shadow: $box-shadow;
 
 		&:hover {
-			background: $primary-dark;
 		}
 
 		&--prev {
@@ -127,14 +119,12 @@
 			width: 10px;
 			height: 10px;
 			border-radius: $border-radius-circle;
-			background: rgba($primary-color, 0.3);
 			cursor: pointer;
 			transition: $transition;
 
 			&--active {
 				width: 30px;
 				border-radius: 5px;
-				background: $primary-color;
 			}
 		}
 	}

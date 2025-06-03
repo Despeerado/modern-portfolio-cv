@@ -2,24 +2,24 @@
  * Sekce stránky
  */
 
-.section {
-	padding: $section-padding;
+// .section {
+// 	padding: $section-padding;
 
-	&--light {
-		background-color: $light-color;
-	}
+// 	&--light {
+// 		background-color: $light-color;
+// 	}
 
-	&--gray {
-		background-color: $gray-light;
-	}
+// 	&--gray {
+// 		background-color: $gray-light;
+// 	}
 
-	&--dark {
-		background-color: $dark-color;
-		color: $light-color;
-	}
+// 	&--dark {
+// 		background-color: $dark-color;
+// 		color: $light-color;
+// 	}
 
-	&__title {
-		@include section-title;
-		text-align: center;
-	}
-}
+// 	&__title {
+// 		@include section-title;
+// 		text-align: center;
+// 	}
+// }

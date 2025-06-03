@@ -4,11 +4,9 @@
 
 .blog {
 	&__section {
-		background-color: $gray-light;
 	}
 
 	&__card {
-		background: $light-color;
 		border-radius: $border-radius-medium;
 		overflow: hidden;
 		transition: $transition;
@@ -41,8 +39,6 @@
 			position: absolute;
 			bottom: 10px;
 			left: 10px;
-			background: rgba($primary-dark, 0.9);
-			color: $light-color;
 			padding: 0.3rem 0.8rem;
 			border-radius: $border-radius-small;
 			font-size: 0.8rem;
@@ -53,8 +49,6 @@
 			position: absolute;
 			top: 10px;
 			right: 10px;
-			background: rgba($accent-color-2, 0.9);
-			color: $dark-color;
 			padding: 0.3rem 0.8rem;
 			border-radius: $border-radius-small;
 			font-size: 0.8rem;
@@ -72,17 +66,11 @@
 		font-weight: $font-weight-semibold;
 
 		a {
-			color: $dark-color;
 			transition: $transition;
-
-			&:hover {
-				color: $primary-color;
-			}
 		}
 	}
 
 	&__excerpt {
-		color: $gray-color;
 		margin-bottom: 1rem;
 		font-size: 0.9rem;
 		line-height: 1.5;
@@ -91,7 +79,6 @@
 	&__meta {
 		@include flex(row, flex-start, center);
 		font-size: 0.85rem;
-		color: $gray-color;
 
 		i {
 			margin-right: 0.25rem;

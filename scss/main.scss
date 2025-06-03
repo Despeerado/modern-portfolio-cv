@@ -9,11 +9,7 @@
 @import 'abstracts/mixins';
 @import 'abstracts/functions';
 @import 'abstracts/responsive';
-@import 'abstracts/mobile-first';
 @import 'abstracts/custom-bootstrap';
-
-// Vendors (třetí strany, jako Bootstrap přizpůsobení)
-@import 'vendors/bootstrap';
 
 // Base
 @import 'base/reset';
