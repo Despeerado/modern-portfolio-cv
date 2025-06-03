@@ -257,121 +257,123 @@ footer .text-light.opacity-75 {
 }
 
 /* Timeline Section Styles */
-#experience .timeline-line {
-  background: linear-gradient(to bottom, var(--bs-primary), rgba(var(--bs-primary-rgb), 0.3));
-  position: relative;
-}
+/* Optimalizace pro Bootstrap 5 s maximálním využitím utility tříd */
 
-#experience .timeline-line::before,
-#experience .timeline-line::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  background-color: var(--bs-primary);
-  border-radius: 50%;
-}
-
-#experience .timeline-line::before {
-  top: -4px;
-}
-
-#experience .timeline-line::after {
-  bottom: -4px;
-}
-
-/* Timeline Card Hover Effects */
+/* Timeline hover efekty pro karty */
 #experience .card {
   transition: all 0.3s ease;
-  border: 1px solid rgba(var(--bs-primary-rgb), 0.1) !important;
 }
 
 #experience .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(var(--bs-primary-rgb), 0.15) !important;
-  border-color: rgba(var(--bs-primary-rgb), 0.2) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
 }
 
-/* Timeline Dot Animation */
-#experience .timeline-dot {
+/* Timeline tečky - animace při hoveru */
+#experience .position-absolute > div {
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-#experience .card:hover + .timeline-dot,
-#experience .timeline-dot:hover {
+#experience .position-absolute > div:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(var(--bs-primary-rgb), 0.3);
 }
 
-/* Badge enhancements */
+/* Timeline linka - gradient optimalizace */
+#experience .position-relative > .position-absolute[style*="background"] {
+  background: linear-gradient(to bottom, 
+    var(--bs-primary), 
+    rgba(var(--bs-primary-rgb), 0.6),
+    rgba(var(--bs-primary-rgb), 0.3)) !important;
+  box-shadow: 0 0 10px rgba(var(--bs-primary-rgb), 0.3);
+}
+
+/* Badge styly pro timeline */
 #experience .badge {
   font-weight: 500;
-  letter-spacing: 0.5px;
+  font-size: 0.85rem;
 }
 
-/* Mobile Timeline Optimizations */
-@media (max-width: 768px) {
-  #experience .timeline-line {
+/* Technology badges hover efekt */
+#experience .badge.bg-light {
+  transition: all 0.2s ease;
+}
+
+#experience .badge.bg-light:hover {
+  background-color: var(--bs-primary) !important;
+  color: white !important;
+  transform: translateY(-1px);
+}
+
+/* Timeline end point animace */
+#experience .bg-gradient-primary {
+  background: linear-gradient(135deg, var(--bs-primary), var(--bs-primary-rgb)) !important;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--bs-primary-rgb), 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(var(--bs-primary-rgb), 0);
+  }
+}
+
+/* Dark mode optimalizace pro timeline */
+[data-bs-theme="dark"] #experience .card {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-bs-theme="dark"] #experience .card:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-bs-theme="dark"] #experience .badge.bg-light {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Mobile responsivity pro timeline */
+@media (max-width: 767.98px) {
+  #experience .position-absolute.d-none.d-md-block {
     display: none !important;
   }
   
   #experience .card {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
   
-  #experience .timeline-dot {
-    position: relative !important;
-    right: auto !important;
-    left: auto !important;
-    margin: 0 auto 1rem auto;
-    display: flex;
+  /* Mobile timeline alternativa */
+  #experience .col-12:not(.col-md-6)::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--bs-primary), rgba(var(--bs-primary-rgb), 0.3));
+    z-index: 1;
   }
-}
-
-/* Dark Mode Timeline Styles */
-[data-bs-theme="dark"] #experience .timeline-line {
-  background: linear-gradient(to bottom, var(--bs-primary), rgba(var(--bs-primary-rgb), 0.2));
-}
-
-[data-bs-theme="dark"] #experience .card {
-  background-color: var(--bs-gray-900) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-[data-bs-theme="dark"] #experience .card:hover {
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
-  border-color: rgba(var(--bs-primary-rgb), 0.3) !important;
-}
-
-[data-bs-theme="dark"] #experience .badge.bg-light {
-  background-color: var(--bs-gray-800) !important;
-  color: var(--bs-gray-300) !important;
-  border-color: var(--bs-gray-700) !important;
-}
-
-/* Timeline End Point Animation */
-#experience .bg-gradient-primary {
-  background: linear-gradient(45deg, var(--bs-primary), var(--bs-info)) !important;
-  animation: pulse-glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes pulse-glow {
-  from {
-    box-shadow: 0 4px 15px rgba(var(--bs-primary-rgb), 0.3);
+  
+  #experience .col-12:not(.col-md-6) .card {
+    margin-left: 2rem;
+    position: relative;
   }
-  to {
-    box-shadow: 0 8px 25px rgba(var(--bs-primary-rgb), 0.5), 0 0 30px rgba(var(--bs-primary-rgb), 0.2);
+  
+  #experience .col-12:not(.col-md-6) .card::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 1.5rem;
+    width: 1rem;
+    height: 1rem;
+    background: var(--bs-primary);
+    border-radius: 50%;
+    z-index: 2;
   }
-}
-
-/* Subtle border radius enhancement */
-#experience .card {
-  border-radius: 1rem !important;
-}
-
-#experience .badge {
-  border-radius: 0.75rem !important;
 }
