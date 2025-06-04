@@ -4,28 +4,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online životopis</title>
+    <title>Karel Omáčka - Frontend vývojář | Modern Portfolio</title>
+    <meta name="description"
+        content="Jsem Karel Omáčka, frontend vývojář specializující se na moderní webové technologie, Sass, Bootstrap a UX design. Podívejte se na mé portfolio a kontaktujte mě pro spolupráci.">
+    <meta name="keywords"
+        content="frontend vývojář, webový vývojář, CSS, Sass, Bootstrap, JavaScript, portfolio, Karel Omáčka">
+    <meta name="author" content="Karel Omáčka">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Karel Omáčka - Frontend vývojář">
+    <meta property="og:description" content="Frontend vývojář se zaměřením na moderní webové technologie a UX design">
+    <meta property="og:image" content="https://despeerado.github.io/modern-portfolio-cv/images/profile-placeholder.svg">
+    <meta property="og:url" content="https://despeerado.github.io/modern-portfolio-cv/">
+
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.ico">
 
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Critical CSS - inline pro rychlé načtení -->
+    <style>
+        /* Critical above-the-fold styles */
+        :root {
+            --bs-primary: #76b852;
+            --bs-secondary: #bc4749;
+            --bs-light: #f2e8cf;
+            --bs-dark: #386641;
+            --bs-body-font-family: "Karla", sans-serif;
+            --bs-body-font-size: 1rem;
+            --bs-body-line-height: 1.5;
+            --bs-body-color: #212529;
+            --bs-body-bg: #fff
+        }
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        * {
+            box-sizing: border-box
+        }
 
-    <!-- Google Fonts - Petrona pro nadpisy, Karla pro texty -->
-    <link
+        body {
+            margin: 0;
+            font-family: var(--bs-body-font-family);
+            font-size: var(--bs-body-font-size);
+            line-height: var(--bs-body-line-height);
+            color: var(--bs-body-color);
+            background-color: var(--bs-body-bg)
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1030;
+            background-color: rgba(255, 255, 255, .95);
+            backdrop-filter: blur(10px);
+            padding: .5rem 1rem
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-decoration: none;
+            color: var(--bs-body-color)
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 15px
+        }
+
+        header {
+            background-image: linear-gradient(135deg, #fffaf8 0%, #f2e8cf 100%);
+            padding: 180px 0 100px;
+            margin-top: 76px
+        }
+
+        .display-6 {
+            font-family: "Petrona", serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            line-height: 1.2
+        }
+
+        .h4 {
+            font-family: "Petrona", serif;
+            font-weight: 600;
+            font-size: 1.5rem
+        }
+
+        .lead {
+            font-family: "Karla", sans-serif;
+            font-weight: 400;
+            font-size: 1.25rem
+        }
+
+        .text-muted {
+            color: #6c757d
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem
+        }
+
+        .btn {
+            display: inline-block;
+            font-family: "Karla", sans-serif;
+            font-weight: 500;
+            padding: .5rem 1rem;
+            text-decoration: none;
+            border-radius: .375rem;
+            transition: all .15s ease-in-out
+        }
+
+        .btn-primary {
+            background-color: var(--bs-primary);
+            color: white;
+            border: 1px solid var(--bs-primary)
+        }
+
+        .btn-lg {
+            padding: .75rem 1.5rem;
+            font-size: 1.125rem
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px
+        }
+
+        .col-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0 15px
+        }
+
+        .col-lg-6 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0 15px
+        }
+
+        @media (min-width:992px) {
+            .col-lg-6 {
+                flex: 0 0 50%;
+                max-width: 50%
+            }
+
+            .display-6 {
+                font-size: 3.5rem
+            }
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-lg-start {
+            text-align: left
+        }
+
+        @media (min-width:992px) {
+            .text-lg-start {
+                text-align: left
+            }
+        }
+
+        .d-flex {
+            display: flex
+        }
+
+        .align-items-center {
+            align-items: center
+        }
+
+        .justify-content-center {
+            justify-content: center
+        }
+
+        .gap-3 {
+            gap: 1rem
+        }
+    </style>
+
+    <!-- Preload important resources -->
+    <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
-        rel="stylesheet">
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="images/profile-placeholder.svg" as="image">
 
-    <!-- AOS CSS - pro animace při scrollování -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Asynchronní načítání CSS -->
+    <script>
+        // CSS Loading Performance Optimization
+        function loadCSS(href, before, media) { var doc = window.document; var ss = doc.createElement("link"); var ref; if (before) { ref = before } else { var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes; ref = refs[refs.length - 1] } var sheets = doc.styleSheets; ss.rel = "stylesheet"; ss.href = href; ss.media = "only x"; function ready(cb) { if (doc.body) { return cb() } setTimeout(function () { ready(cb) }) } ready(function () { ref.parentNode.insertBefore(ss, (before ? ref : ref.nextSibling)) }); var onloadcssdefined = function (cb) { var resolvedHref = ss.href; var i = sheets.length; while (i--) { if (sheets[i].href === resolvedHref) { return cb() } } setTimeout(function () { onloadcssdefined(cb) }) }; function loadCB() { if (ss.addEventListener) { ss.removeEventListener("load", loadCB) } ss.media = media || "all" } if (ss.addEventListener) { ss.addEventListener("load", loadCB) } ss.onloadcssdefined = onloadcssdefined; onloadcssdefined(loadCB); return ss }
 
-    <!-- Custom CSS - kompilovaný z SCSS -->
-    <link rel="stylesheet" href="css/style.css">
+        // Load non-critical CSS
+        loadCSS("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css");
+        loadCSS("https://unpkg.com/aos@2.3.1/dist/aos.css");
+        loadCSS("css/icons.css");
+        loadCSS("css/style.css");
+    </script>
+
+    <!-- Fallback pro prohlížeče bez JS -->
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+            rel="stylesheet">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/icons.css">
+        <link rel="stylesheet" href="css/style.css">
+    </noscript>
 </head>
 
 <body>
@@ -52,7 +253,7 @@
                     <li class="nav-item">
                         <a class="nav-link fw-medium" href="#contact">Kontakt</a>
                     </li>
-                </ul>
+                </ul>Vy
             </div>
         </div>
     </nav>
@@ -72,16 +273,34 @@
                             <a href="#" class="btn btn-outline-primary btn-lg">Stáhnout CV</a>
                         </div>
                         <div class="d-flex justify-content-center justify-content-lg-start gap-3">
-                            <a href="#" class=" fs-4"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class=" fs-4"><i class="fab fa-github"></i></a>
-                            <a href="#" class=" fs-4"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="fs-4 icon-social">
+                                <svg class="icon icon-lg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="fs-4 icon-social">
+                                <svg class="icon icon-lg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                                </svg>
+                            </a>
+                            <a href="#" class="fs-4 icon-social">
+                                <svg class="icon icon-lg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                                    <path
+                                        d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 text-center">
                     <div data-aos="fade-left">
                         <img src="images/profile-placeholder.svg" alt="Profilová fotografie"
-                            class="img-fluid rounded-circle shadow w-75" style="max-width: 300px;">
+                            class="img-fluid rounded-circle shadow w-75" style="max-width: 300px;" width="300"
+                            height="300" loading="eager">
                     </div>
                 </div>
             </div>
@@ -121,8 +340,9 @@
 
                 <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-center p-3 p-lg-4 h-100 border rounded-3 shadow-sm ">
-                        <div class="fs-1 mb-3">
-                            <i class="fas fa-paint-brush"></i>
+                        <div class="fs-1 mb-3 text-primary">
+                            <img src="images/image_brush.svg" alt="Styling & CSS" style="width: 3rem; height: 3rem;"
+                                width="48" height="48" loading="lazy">
                         </div>
                         <h4 class="h5 fw-bold mb-3">Styling & CSS</h4>
                         <p class="text-muted">V CSS se cítím jako doma – řeším vizuální detaily, gridy, přechody i
@@ -131,8 +351,9 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="text-center p-3 p-lg-4 h-100 border rounded-3 shadow-sm ">
-                        <div class="fs-1 mb-3">
-                            <i class="fas fa-wrench"></i>
+                        <div class="fs-1 mb-3 text-secondary">
+                            <img src="images/image_documents.svg" alt="Úpravy stávajících webů"
+                                style="width: 3rem; height: 3rem;" width="48" height="48" loading="lazy">
                         </div>
                         <h4 class="h5 fw-bold mb-3">Úpravy stávajících webů</h4>
                         <p class="text-muted">Přizpůsobuji hotové stránky – často v Shoptetu nebo WordPressu. Upravuju
@@ -141,20 +362,17 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="text-center p-3 p-lg-4 h-100 border rounded-3 shadow-sm ">
-                        <div class="fs-1 mb-3">
-                            <i class="fas fa-plug"></i>
+                        <div class="fs-1 mb-3 text-success">
+                            <img src="images/image_api.svg" alt="API & JS logika" style="width: 3rem; height: 3rem;"
+                                width="48" height="48" loading="lazy">
                         </div>
                         <h4 class="h5 fw-bold mb-3">Práce s API & JS logika</h4>
                         <p class="text-muted">Napojení na API, úpravy DOMu podle dat, zpracování formulářů nebo
                             stavových přepínačů – JS mi není cizí.</p>
                     </div>
                 </div>
-                </i>
             </div>
 
-        </div>
-        </div>
-        </div>
         </div>
     </section>
 
@@ -177,8 +395,10 @@
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <img src="images/logo_html.svg" alt="HTML5" style="height: 3rem;" class="me-2">
-                                <img src="images/logo_css3.svg" alt="CSS3" style="height: 3rem;">
+                                <img src="images/logo_html.svg" alt="HTML5" style="height: 3rem;" class="me-2"
+                                    width="48" height="48" loading="lazy">
+                                <img src="images/logo_css3.svg" alt="CSS3" style="height: 3rem;" width="48" height="48"
+                                    loading="lazy">
                             </div>
                             <h5 class="fw-bold text-dark mb-3">HTML5 & CSS3</h5>
                             <p class="text-muted mb-0">Semantický HTML a moderní CSS včetně Flexbox, Grid a animací</p>
@@ -190,7 +410,8 @@
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <i class="fab fa-js-square text-warning" style="font-size: 3rem;"></i>
+                                <img src="images/logo_javascript.svg" alt="JavaScript" style="height: 3rem;" width="48"
+                                    height="48" loading="lazy">
                             </div>
                             <h5 class="fw-bold text-dark mb-3">JavaScript ES6+</h5>
                             <p class="text-muted mb-0">Moderní JavaScript včetně async/await, destructuring, modules</p>
@@ -202,7 +423,8 @@
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <img src="images/logo_sass.svg" alt="Sass/SCSS" style="height: 3rem;">
+                                <img src="images/logo_sass.svg" alt="Sass/SCSS" style="height: 3rem;" width="48"
+                                    height="48" loading="lazy">
                             </div>
                             <h5 class="fw-bold text-dark mb-3">Sass/SCSS</h5>
                             <p class="text-muted mb-0">CSS preprocessor, mixins, variables, nested rules</p>
@@ -214,7 +436,8 @@
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <i class="fab fa-bootstrap text-purple" style="font-size: 3rem; color: #7952b3;"></i>
+                                <img src="images/logo_bootstrap.svg" alt="Bootstrap" style="height: 3rem;" width="48"
+                                    height="48" loading="lazy">
                             </div>
                             <h5 class="fw-bold text-dark mb-3">Bootstrap 5</h5>
                             <p class="text-muted mb-0">Responzivní framework, utility classes, komponenty</p>
@@ -227,7 +450,8 @@
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
                                 <img src="images/skills/shoptet-logo-sign-full.png" alt="Shoptet Logo"
-                                    style="height: 48px; width: auto; max-width: 120px;">
+                                    style="height: 48px; width: auto; max-width: 120px;" width="120" height="48"
+                                    loading="lazy">
                             </div>
                             <h5 class="fw-bold text-dark mb-3">Shoptet</h5>
                             <p class="text-muted mb-0">E-commerce platforma, custom témata, Smarty templating</p>
@@ -239,7 +463,8 @@
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <img src="images/logo_tailwind.svg" alt="Tailwind CSS" style="height: 3rem;">
+                                <img src="images/logo_tailwind.svg" alt="Tailwind CSS" style="height: 3rem;" width="48"
+                                    height="48" loading="lazy">
                             </div>
                             <h5 class="fw-bold text-dark mb-3">Tailwind CSS</h5>
                             <p class="text-muted mb-0">Utility-first CSS framework pro rychlé prototypování</p>
@@ -266,7 +491,8 @@
                     <div class="card border-0 shadow-sm h-100 bg-light-subtle">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <i class="fab fa-react text-info" style="font-size: 3rem;"></i>
+                                <img src="images/logo_react.svg" alt="React.js" style="height: 3rem;" width="48"
+                                    height="48" loading="lazy">
                             </div>
                             <h5 class="fw-bold text-dark mb-3">React.js</h5>
                             <p class="text-muted mb-0">Komponenty, Hooks, Context API - postupně se učím moderní
@@ -280,7 +506,8 @@
                     <div class="card border-0 shadow-sm h-100 bg-light-subtle">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <i class="fab fa-node-js text-success" style="font-size: 3rem;"></i>
+                                <img src="images/logo_nodejs.svg" alt="Node.js" style="height: 3rem;" width="48"
+                                    height="48" loading="lazy">
                             </div>
                             <h5 class="fw-bold text-dark mb-3">Node.js</h5>
                             <p class="text-muted mb-0">Backend development, Express.js, REST API - rozšiřuji do
@@ -294,7 +521,8 @@
                     <div class="card border-0 shadow-sm h-100 bg-light-subtle">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <img src="images/logo_typescript.svg" alt="TypeScript" style="height: 3rem;">
+                                <img src="images/logo_typescript.svg" alt="TypeScript" style="height: 3rem;" width="48"
+                                    height="48" loading="lazy">
                             </div>
                             <h5 class="fw-bold text-dark mb-3">TypeScript</h5>
                             <p class="text-muted mb-0">Typový systém pro JavaScript - zlepšuji kvalitu kódu a vývojovou
@@ -316,61 +544,84 @@
             <div class="row g-3 justify-content-center">
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="100">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <i class="fab fa-git-alt text-danger fs-2 mb-2"></i>
+                        <svg class="icon icon-2x icon-git mb-2 mx-auto" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.715.713 1.875 0 2.59-.719.719-1.881.719-2.6 0-.719-.719-.719-1.881 0-2.598.177-.178.382-.317.605-.406v-6.596c-.223-.089-.428-.228-.605-.406-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187" />
+                        </svg>
                         <p class="small mb-0 fw-medium">Git</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="200">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <i class="fab fa-npm text-danger fs-2 mb-2"></i>
+                        <img src="images/logo_npm.svg" alt="NPM" style="height: 2rem;" class="mb-2 mx-auto" width="32"
+                            height="32" loading="lazy">
                         <p class="small mb-0 fw-medium">NPM</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="300">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <img src="images/webpack.svg" alt="Webpack" style="height: 2rem;" class="mb-2 mx-auto">
+                        <img src="images/webpack.svg" alt="Webpack" style="height: 2rem;" class="mb-2 mx-auto"
+                            width="32" height="32" loading="lazy">
                         <p class="small mb-0 fw-medium">Webpack</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="400">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <img src="images/logo_figma.svg" alt="Figma" style="height: 2rem;" class="mb-2 mx-auto">
+                        <img src="images/logo_figma.svg" alt="Figma" style="height: 2rem;" class="mb-2 mx-auto"
+                            width="32" height="32" loading="lazy">
                         <p class="small mb-0 fw-medium">Figma</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="500">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <img src="images/logo_vscode.svg" alt="VS Code" style="height: 2rem;" class="mb-2 mx-auto">
+                        <img src="images/logo_vscode.svg" alt="VS Code" style="height: 2rem;" class="mb-2 mx-auto"
+                            width="32" height="32" loading="lazy">
                         <p class="small mb-0 fw-medium">VS Code</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="600">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <i class="fas fa-terminal text-dark fs-2 mb-2"></i>
+                        <img src="images/logo_terminal.svg" alt="Terminal" style="height: 2rem;" class="mb-2 mx-auto"
+                            width="32" height="32" loading="lazy">
                         <p class="small mb-0 fw-medium">Terminal</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="700">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <img src="images/logo_gitkraken.svg" alt="GitKraken" style="height: 2rem;" class="mb-2 mx-auto">
+                        <img src="images/logo_gitkraken.svg" alt="GitKraken" style="height: 2rem;" class="mb-2 mx-auto"
+                            width="32" height="32" loading="lazy">
                         <p class="small mb-0 fw-medium">GitKraken</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="800">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <i class="fas fa-images text-warning fs-2 mb-2"></i>
+                        <svg class="icon icon-2x text-warning mb-2 mx-auto" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
+                                clip-rule="evenodd" />
+                        </svg>
                         <p class="small mb-0 fw-medium">Slick Slider</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="900">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <i class="fas fa-magic text-secondary fs-2 mb-2"></i>
+                        <svg class="icon icon-2x text-secondary mb-2 mx-auto" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 01.75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 019.75 22.5a.75.75 0 01-.75-.75v-4.131A15.838 15.838 0 016.382 15H2.25a.75.75 0 01-.75-.75 6.75 6.75 0 017.815-6.666zM15 6.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z"
+                                clip-rule="evenodd" />
+                            <path
+                                d="M5.26 17.242a.75.75 0 10-.897-1.203 5.243 5.243 0 00-2.05 5.022.75.75 0 00.625.627 5.243 5.243 0 005.022-2.051.75.75 0 10-1.202-.897 3.744 3.744 0 01-3.008 1.51c0-1.23.592-2.323 1.51-3.008z" />
+                        </svg>
                         <p class="small mb-0 fw-medium">AOS</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="1000">
                     <div class="card text-center p-3 border rounded-3 shadow-sm h-100">
-                        <i class="fas fa-arrows-alt-h text-danger fs-2 mb-2"></i>
+                        <svg class="icon icon-2x text-danger mb-2 mx-auto" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M3.75 12a.75.75 0 01.75-.75h13.19l-5.47-5.47a.75.75 0 011.06-1.06l6.75 6.75a.75.75 0 010 1.06l-6.75 6.75a.75.75 0 11-1.06-1.06l5.47-5.47H4.5a.75.75 0 01-.75-.75z"
+                                clip-rule="evenodd" />
+                        </svg>
                         <p class="small mb-0 fw-medium">Flickity</p>
                     </div>
                 </div>
@@ -392,7 +643,8 @@
                     <div class="card border-0 shadow-sm h-100 bg-primary-subtle">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <img src="images/logo_copilot.svg" alt="GitHub Copilot" style="height: 3rem;">
+                                <img src="images/logo_copilot.svg" alt="GitHub Copilot" style="height: 3rem;" width="48"
+                                    height="48" loading="lazy">
                             </div>
                             <h5 class="fw-bold text-dark mb-3">GitHub Copilot</h5>
                             <p class="text-muted mb-0">AI pair programmer pro generování kódu, autocompletování a
@@ -406,7 +658,8 @@
                     <div class="card border-0 shadow-sm h-100 bg-success-subtle">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <img src="images/logo_chatgpt.svg" alt="ChatGPT" style="height: 3rem;">
+                                <img src="images/logo_chatgpt.svg" alt="ChatGPT" style="height: 3rem;" width="48"
+                                    height="48" loading="lazy">
                             </div>
                             <h5 class="fw-bold text-dark mb-3">ChatGPT</h5>
                             <p class="text-muted mb-0">AI asistent pro řešení problémů, code review a technickou
@@ -453,7 +706,12 @@
                                             style="width: 50px; height: 50px;">
                                             <div
                                                 class="bg-success rounded-circle d-flex align-items-center justify-content-center w-100 h-100 shadow">
-                                                <i class="fas fa-user"></i>
+                                                <svg class="icon timeline-icon-svg" viewBox="0 0 24 24"
+                                                    fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
                                             </div>
                                         </div>
                                         <div class="card-body p-4">

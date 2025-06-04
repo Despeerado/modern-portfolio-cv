@@ -1,0 +1,69 @@
+/* SVG Icon System - nahrada za Font Awesome */
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+.icon-sm { width: 0.875em; height: 0.875em; }
+.icon-lg { width: 1.25em; height: 1.25em; }
+.icon-xl { width: 1.5em; height: 1.5em; }
+.icon-2x { width: 2em; height: 2em; }
+.icon-3x { width: 3em; height: 3em; }
+
+/* Animace pro interaktivní ikony */
+.icon-hover {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.icon-hover:hover {
+  transform: scale(1.1);
+}
+
+/* Specifické styly pro různé ikony */
+.icon-social {
+  transition: all 0.3s ease;
+}
+
+.icon-social:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+/* Timeline ikony */
+.timeline-icon .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: white;
+}
+
+/* Utility classes */
+.icon-spin {
+  animation: icon-spin 2s infinite linear;
+}
+
+@keyframes icon-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.icon-pulse {
+  animation: icon-pulse 2s infinite;
+}
+
+@keyframes icon-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Logo ikony v kartách */
+.logo-icon {
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.logo-icon:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
