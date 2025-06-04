@@ -11,10 +11,18 @@ $badge-color: $clr-secondary !default;
 $link-color: $clr-primary !default;
 $link-hover-color: darken($clr-primary, 15%) !default;
 
-// Barevná paleta
+// Barevná paleta - zachováváme Bootstrap standardní barvy + naše custom barvy
 $theme-colors: (
 	'primary': $clr-primary,
 	'secondary': $clr-secondary,
+	'success': #198754,
+	// Bootstrap standardní success
+	'info': #0dcaf0,
+	// Bootstrap standardní info
+	'warning': #ffc107,
+	// Bootstrap standardní warning
+	'danger': #dc3545,
+	// Bootstrap standardní danger
 	'light': $clr-light,
 	'dark': $clr-dark,
 );

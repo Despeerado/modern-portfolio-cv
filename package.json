@@ -7,7 +7,9 @@
     "sass": "sass scss/main.scss:css/style.css",
     "sass:watch": "sass --watch scss/main.scss:css/style.css",
     "sass:compressed": "sass --style=compressed scss/main.scss:css/style.min.css",
-    "build": "npm run sass:compressed"
+    "bootstrap": "sass scss/main.scss:css/custom-bootstrap.css --style=compressed",
+    "bootstrap:watch": "sass --watch scss/main.scss:css/custom-bootstrap.css --style=compressed",
+    "build": "npm run sass:compressed && npm run bootstrap"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +17,6 @@
     "bootstrap": "^5.3.6"
   },
   "devDependencies": {
-    "sass": "^1.60.0"
+    "sass": "^1.89.1"
   }
 }
