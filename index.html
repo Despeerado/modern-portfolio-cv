@@ -31,12 +31,11 @@
             rel="stylesheet">
     </noscript>
 
-    <!-- Remove external CDN dependencies for better performance -->
-    <!-- <link rel="preconnect" href="https://cdn.jsdelivr.net"> -->
-    <!-- <link rel="dns-prefetch" href="https://unpkg.com"> -->
-
     <!-- Critical resource preloads with priorities -->
-    <link rel="preload" as="image" href="images/profile-placeholder.svg" fetchpriority="high">
+    <link rel="preload" as="image" href="images/profile-mobile-200.webp" fetchpriority="high"
+        media="(max-width: 767px)">
+    <link rel="preload" as="image" href="images/profile-desktop-300.webp" fetchpriority="high"
+        media="(min-width: 768px)">
     <link rel="preload" as="script" href="js/main.min.js?v=1749048895" fetchpriority="high">
     <link rel="preload" as="style" href="css/custom-bootstrap.css?v=1749048895" fetchpriority="high">
 
@@ -281,6 +280,36 @@
         .gap-3 {
             gap: 1rem
         }
+
+        /* LCP Optimization: Profile image container */
+        .profile-image-container {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin: 0 auto;
+            contain: layout style;
+            display: block;
+        }
+
+        .profile-image-container picture {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .profile-image-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            will-change: auto;
+            transform: translateZ(0);
+        }
+
+        @media (max-width: 767px) {
+            .profile-image-container {
+                max-width: 200px;
+            }
+        }
     </style>
 
     <!-- Preload important resources -->
@@ -385,10 +414,30 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 text-center">
-                    <div data-aos="fade-left">
-                        <img src="images/profile-placeholder.svg" alt="Profilová fotografie"
-                            class="img-fluid rounded-circle shadow w-75" style="max-width: 300px;" width="300"
-                            height="300" loading="eager" fetchpriority="high">
+                    <div class="profile-image-container">
+                        <picture class="profile-picture">
+                            <!-- WebP pro mobil - menší velikost pro rychlejší LCP -->
+                            <source srcset="images/profile-mobile-200.webp 200w,
+                                            images/profile-mobile-250.webp 250w"
+                                sizes="(max-width: 767px) 200px, 250px" type="image/webp" media="(max-width: 767px)">
+
+                            <!-- WebP pro desktop -->
+                            <source srcset="images/profile-desktop-300.webp 300w" sizes="(min-width: 768px) 300px"
+                                type="image/webp">
+
+                            <!-- PNG fallback pro mobil -->
+                            <source srcset="images/profile-mobile-200.png 200w,
+                                            images/profile-mobile-250.png 250w" sizes="(max-width: 767px) 200px, 250px"
+                                media="(max-width: 767px)">
+
+                            <!-- PNG fallback pro desktop -->
+                            <source srcset="images/profile-desktop-300.png 300w" sizes="(min-width: 768px) 300px">
+
+                            <!-- Fallback IMG element -->
+                            <img src="images/profile-desktop-300.png" alt="Profilová fotografie"
+                                class="img-fluid rounded-circle shadow w-75" style="max-width: 300px; display: block;"
+                                width="300" height="300" loading="eager" fetchpriority="high">
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -1047,7 +1096,6 @@
                                             <path fill-rule="evenodd"
                                                 d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
                                                 clip-rule="evenodd" />
-                                        </svg>
                                     </div>
                                 </div>
                                 <div>
@@ -1082,6 +1130,7 @@
                                     </svg>
                                 </a>
                             </div>
+                            <p class="text-muted small mb-0">Zůstaňme v kontaktu a sledujte mé nejnovější projekty.</p>
                         </div>
                     </div>
                 </div>
@@ -1335,6 +1384,250 @@
 
     <!-- Dynamic Font Loader -->
     <script src="js/font-loader.js?v=1749048895" defer></script>
+
+    <!-- Advanced Performance Monitoring for Responsive Images -->
+    <script>
+        // Performance Monitor for LCP and CLS optimization
+        class PerformanceMonitor {
+            constructor() {
+                this.metrics = {
+                    lcp: null,
+                    cls: 0,
+                    fcp: null,
+                    fontLoad: null,
+                    imageLoad: {}
+                };
+
+                this.isDebugMode = new URLSearchParams(window.location.search).has('debug');
+
+                if (this.isDebugMode) {
+                    this.init();
+                }
+            }
+
+            init() {
+                console.log('🚀 Performance Monitor initialized (debug mode)');
+                this.setupLCPObserver();
+                this.setupCLSObserver();
+                this.setupFCPObserver();
+                this.monitorImageLoading();
+                this.createDebugUI();
+            }
+
+            setupLCPObserver() {
+                if ('PerformanceObserver' in window) {
+                    const observer = new PerformanceObserver((entryList) => {
+                        const entries = entryList.getEntries();
+                        const lastEntry = entries[entries.length - 1];
+
+                        if (lastEntry) {
+                            this.metrics.lcp = Math.round(lastEntry.startTime + lastEntry.duration);
+                            console.log(`⚡ LCP: ${this.metrics.lcp}ms`, lastEntry.element);
+                            this.updateDebugUI();
+
+                            // Auto-optimization check
+                            if (this.metrics.lcp > 2500) {
+                                console.warn(`⚠️ LCP je pomalé (${this.metrics.lcp}ms > 2500ms)`);
+                            } else {
+                                console.log(`✅ LCP je optimální (${this.metrics.lcp}ms < 2500ms)`);
+                            }
+                        }
+                    });
+
+                    observer.observe({ type: 'largest-contentful-paint', buffered: true });
+                }
+            }
+
+            setupCLSObserver() {
+                if ('PerformanceObserver' in window) {
+                    const observer = new PerformanceObserver((entryList) => {
+                        for (const entry of entryList.getEntries()) {
+                            if (!entry.hadRecentInput) {
+                                this.metrics.cls += entry.value;
+                                console.log(`📐 Layout Shift: +${entry.value.toFixed(4)} (total: ${this.metrics.cls.toFixed(4)})`);
+                                this.updateDebugUI();
+                            }
+                        }
+                    });
+
+                    observer.observe({ type: 'layout-shift', buffered: true });
+                }
+            }
+
+            setupFCPObserver() {
+                if ('PerformanceObserver' in window) {
+                    const observer = new PerformanceObserver((entryList) => {
+                        const entries = entryList.getEntries();
+                        if (entries.length > 0) {
+                            this.metrics.fcp = Math.round(entries[0].startTime);
+                            console.log(`🎨 FCP: ${this.metrics.fcp}ms`);
+                            this.updateDebugUI();
+                        }
+                    });
+
+                    observer.observe({ type: 'paint', buffered: true });
+                }
+            }
+
+            monitorImageLoading() {
+                // Monitor profile image specifically
+                const profilePicture = document.querySelector('.profile-picture');
+                if (profilePicture) {
+                    const img = profilePicture.querySelector('img');
+                    if (img) {
+                        const startTime = performance.now();
+
+                        if (img.complete) {
+                            // Image already loaded
+                            const loadTime = 0;
+                            this.metrics.imageLoad.profile = loadTime;
+                            console.log(`🖼️ Profile image: Already loaded (${img.currentSrc || img.src})`);
+                        } else {
+                            // Monitor image load
+                            img.addEventListener('load', () => {
+                                const loadTime = Math.round(performance.now() - startTime);
+                                this.metrics.imageLoad.profile = loadTime;
+                                console.log(`🖼️ Profile image loaded: ${loadTime}ms (${img.currentSrc || img.src})`);
+
+                                // Check if correct responsive image was chosen
+                                const currentSrc = img.currentSrc || img.src;
+                                const isMobile = window.innerWidth < 768;
+                                const expectedFormat = currentSrc.includes('.webp') ? 'WebP' : 'PNG/SVG';
+                                const expectedSize = isMobile ? '200-250px' : '300px';
+
+                                console.log(`📱 Responsive image check: ${isMobile ? 'Mobile' : 'Desktop'} - ${expectedFormat} - Expected: ${expectedSize}`);
+                                this.updateDebugUI();
+                            });
+
+                            img.addEventListener('error', () => {
+                                console.error('❌ Profile image failed to load');
+                            });
+                        }
+                    }
+                }
+
+                // Monitor all images for comprehensive analysis
+                const images = document.querySelectorAll('img');
+                images.forEach((img, index) => {
+                    if (!img.src.includes('profile')) return; // Only monitor profile images for now
+
+                    const startTime = performance.now();
+
+                    if (img.complete) {
+                        console.log(`🖼️ Image ${index}: Already loaded`);
+                    } else {
+                        img.addEventListener('load', () => {
+                            const loadTime = Math.round(performance.now() - startTime);
+                            console.log(`🖼️ Image ${index} loaded: ${loadTime}ms`);
+                        });
+                    }
+                });
+            }
+
+            createDebugUI() {
+                // Create floating debug panel
+                const debugPanel = document.createElement('div');
+                debugPanel.id = 'performance-debug';
+                debugPanel.style.cssText = `
+                    position: fixed;
+                    top: 10px;
+                    right: 10px;
+                    background: rgba(0, 0, 0, 0.9);
+                    color: #00ff00;
+                    padding: 15px;
+                    border-radius: 8px;
+                    font-family: 'Courier New', monospace;
+                    font-size: 12px;
+                    z-index: 10000;
+                    min-width: 300px;
+                    backdrop-filter: blur(10px);
+                    border: 1px solid #333;
+                `;
+
+                debugPanel.innerHTML = `
+                    <div style="font-weight: bold; margin-bottom: 10px; color: #ffffff;">🚀 Performance Monitor</div>
+                    <div id="debug-lcp">⚡ LCP: Measuring...</div>
+                    <div id="debug-cls">📐 CLS: 0.000</div>
+                    <div id="debug-fcp">🎨 FCP: Measuring...</div>
+                    <div id="debug-img">🖼️ Profile Image: Loading...</div>
+                    <div style="margin-top: 10px; font-size: 10px; color: #888;">
+                        viewport: ${window.innerWidth}x${window.innerHeight}<br>
+                        device: ${window.innerWidth < 768 ? 'Mobile' : window.innerWidth < 1024 ? 'Tablet' : 'Desktop'}
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <button onclick="window.performanceMonitor.exportResults()" style="background: #333; color: #fff; border: 1px solid #555; padding: 5px; border-radius: 3px; font-size: 10px;">Export Results</button>
+                    </div>
+                `;
+
+                document.body.appendChild(debugPanel);
+            }
+
+            updateDebugUI() {
+                if (!this.isDebugMode) return;
+
+                const lcpEl = document.getElementById('debug-lcp');
+                const clsEl = document.getElementById('debug-cls');
+                const fcpEl = document.getElementById('debug-fcp');
+                const imgEl = document.getElementById('debug-img');
+
+                if (lcpEl && this.metrics.lcp) {
+                    const status = this.metrics.lcp < 2500 ? '✅' : this.metrics.lcp < 4000 ? '⚠️' : '❌';
+                    lcpEl.textContent = `⚡ LCP: ${this.metrics.lcp}ms ${status}`;
+                }
+
+                if (clsEl) {
+                    const status = this.metrics.cls < 0.1 ? '✅' : this.metrics.cls < 0.25 ? '⚠️' : '❌';
+                    clsEl.textContent = `📐 CLS: ${this.metrics.cls.toFixed(3)} ${status}`;
+                }
+
+                if (fcpEl && this.metrics.fcp) {
+                    const status = this.metrics.fcp < 1800 ? '✅' : this.metrics.fcp < 3000 ? '⚠️' : '❌';
+                    fcpEl.textContent = `🎨 FCP: ${this.metrics.fcp}ms ${status}`;
+                }
+
+                if (imgEl && this.metrics.imageLoad.profile !== undefined) {
+                    imgEl.textContent = `🖼️ Profile: ${this.metrics.imageLoad.profile}ms ✅`;
+                }
+            }
+
+            exportResults() {
+                const results = {
+                    timestamp: new Date().toISOString(),
+                    viewport: {
+                        width: window.innerWidth,
+                        height: window.innerHeight,
+                        device: window.innerWidth < 768 ? 'mobile' : window.innerWidth < 1024 ? 'tablet' : 'desktop'
+                    },
+                    metrics: this.metrics,
+                    userAgent: navigator.userAgent,
+                    connection: navigator.connection ? {
+                        effectiveType: navigator.connection.effectiveType,
+                        downlink: navigator.connection.downlink
+                    } : null
+                };
+
+                console.log('📊 Performance Results:', results);
+
+                // Copy to clipboard
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(JSON.stringify(results, null, 2));
+                    console.log('📋 Results copied to clipboard');
+                }
+
+                return results;
+            }
+        }
+
+        // Initialize performance monitor
+        window.performanceMonitor = new PerformanceMonitor();
+
+        // Additional responsive image debugging
+        window.addEventListener('resize', () => {
+            if (window.performanceMonitor.isDebugMode) {
+                console.log(`📱 Viewport changed: ${window.innerWidth}x${window.innerHeight}`);
+            }
+        });
+    </script>
 </body>
 
 </html>
