@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karel Omáčka - Frontend vývojář | Modern Portfolio</title>
+    <title>Dominik Omáčka - Frontend vývojář | Modern Portfolio</title>
     <meta name="description"
-        content="Jsem Karel Omáčka, frontend vývojář specializující se na moderní webové technologie, Sass, Bootstrap a UX design. Podívejte se na mé portfolio a kontaktujte mě pro spolupráci.">
+        content="Jsem Dominik Omáčka, frontend vývojář specializující se na moderní webové technologie, Sass, Bootstrap a UX design. Podívejte se na mé portfolio a kontaktujte mě pro spolupráci.">
     <meta name="keywords"
-        content="frontend vývojář, webový vývojář, CSS, Sass, Bootstrap, JavaScript, portfolio, Karel Omáčka">
-    <meta name="author" content="Karel Omáčka">
+        content="frontend vývojář, webový vývojář, CSS, Sass, Bootstrap, JavaScript, portfolio, Dominik Omáčka">
+    <meta name="author" content="Dominik Omáčka">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Karel Omáčka - Frontend vývojář">
+    <meta property="og:title" content="Dominik Omáčka - Frontend vývojář">
     <meta property="og:description" content="Frontend vývojář se zaměřením na moderní webové technologie a UX design">
     <meta property="og:image" content="https://despeerado.github.io/modern-portfolio-cv/images/profile-placeholder.svg">
     <meta property="og:url" content="https://despeerado.github.io/modern-portfolio-cv/">
@@ -22,8 +22,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
+
+    <!-- Image optimization - preload hero image -->
+    <link rel="preload" as="image" href="images/profile-placeholder.svg" fetchpriority="high">
+
+    <!-- Resource hints for above-the-fold icons -->
+    <link rel="dns-prefetch" href="./images/">
+    <link rel="prefetch" as="image" href="images/image_brush.svg">
+    <link rel="prefetch" as="image" href="images/image_documents.svg">
+    <link rel="prefetch" as="image" href="images/image_api.svg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -31,13 +39,32 @@
 
     <!-- Critical CSS - inline pro rychlé načtení -->
     <style>
+        /* Font optimization with fallbacks */
+        @font-face {
+            font-family: 'Karla';
+            font-style: normal;
+            font-weight: 200 800;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/karla/v31/qkBIXvYC6trAT7RbLtyU5rZP.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+            font-family: 'Petrona';
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/petrona/v33/mtG04_FCK7bOvpu2u3FqPbrLOZ0.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
         /* Critical above-the-fold styles */
         :root {
             --bs-primary: #76b852;
             --bs-secondary: #bc4749;
             --bs-light: #f2e8cf;
             --bs-dark: #386641;
-            --bs-body-font-family: "Karla", sans-serif;
+            --bs-body-font-family: "Karla", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             --bs-body-font-size: 1rem;
             --bs-body-line-height: 1.5;
             --bs-body-color: #212529;
@@ -88,20 +115,20 @@
         }
 
         .display-6 {
-            font-family: "Petrona", serif;
+            font-family: "Petrona", Georgia, "Times New Roman", serif;
             font-weight: 700;
             font-size: 2.5rem;
             line-height: 1.2
         }
 
         .h4 {
-            font-family: "Petrona", serif;
+            font-family: "Petrona", Georgia, "Times New Roman", serif;
             font-weight: 600;
             font-size: 1.5rem
         }
 
         .lead {
-            font-family: "Karla", sans-serif;
+            font-family: "Karla", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             font-weight: 400;
             font-size: 1.25rem
         }
@@ -120,7 +147,7 @@
 
         .btn {
             display: inline-block;
-            font-family: "Karla", sans-serif;
+            font-family: "Karla", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             font-weight: 500;
             padding: .5rem 1rem;
             text-decoration: none;
@@ -200,9 +227,11 @@
     </style>
 
     <!-- Preload important resources -->
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- Preload font files directly for better performance -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/karla/v31/qkBIXvYC6trAT7RbLtyU5rZP.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/petrona/v33/mtG04_FCK7bOvpu2u3FqPbrLOZ0.woff2" as="font"
+        type="font/woff2" crossorigin>
     <link rel="preload" href="images/profile-placeholder.svg" as="image">
 
     <!-- Asynchronní načítání CSS -->
@@ -220,9 +249,6 @@
     <!-- Fallback pro prohlížeče bez JS -->
     <noscript>
         <link href="css/custom-bootstrap.css" rel="stylesheet">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
-            rel="stylesheet">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="stylesheet" href="css/icons.css">
         <link rel="stylesheet" href="css/style.css">
@@ -233,7 +259,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top shadow-sm " id="mainNav" data-bs-theme="light">
         <div class="container px-3">
-            <a class="navbar-brand fw-bold  fs-4" href="#page-top">Karel Omáčka</a>
+            <a class="navbar-brand fw-bold  fs-4" href="#page-top">Dominik Omáčka</a>
             <div class="d-flex align-items-center order-lg-3">
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
@@ -264,7 +290,7 @@
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
                     <div data-aos="fade-right">
-                        <h1 class="display-6 display-md-4 fw-bold  mb-3">Karel Omáčka</h1>
+                        <h1 class="display-6 display-md-4 fw-bold  mb-3">Dominik Omáčka</h1>
                         <h2 class="h4 h3-md  mb-3">Frontend vývojář</h2>
                         <p class="lead text-muted mb-4 px-2 px-md-0">... a se smyslem pro humor.</p>
                         <div
@@ -300,7 +326,7 @@
                     <div data-aos="fade-left">
                         <img src="images/profile-placeholder.svg" alt="Profilová fotografie"
                             class="img-fluid rounded-circle shadow w-75" style="max-width: 300px;" width="300"
-                            height="300" loading="eager">
+                            height="300" loading="eager" fetchpriority="high">
                     </div>
                 </div>
             </div>
@@ -321,7 +347,7 @@
             <div class="row align-items-center">
                 <div class="col-12 mb-4 mb-lg-0" data-aos="fade-right">
                     <div class="px-2">
-                        <h3 class="h4 fw-bold  mb-3">Ahoj, jsem <span class="">Karel</span>
+                        <h3 class="h4 fw-bold  mb-3">Ahoj, jsem <span class="">Dominik</span>
                         </h3>
                         <p class="text-muted mb-0">
                             Jsem frontend vývojář se zaměřením na kvalitní stylování, Sass, přehledný kód a UX.
@@ -449,9 +475,13 @@
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center p-4">
                             <div class="mb-3">
-                                <img src="images/skills/shoptet-logo-sign-full.png" alt="Shoptet Logo"
-                                    style="height: 48px; width: auto; max-width: 120px;" width="120" height="48"
-                                    loading="lazy">
+                                <picture>
+                                    <source srcset="images/skills/shoptet-logo-sign-full.webp" type="image/webp"
+                                        width="120" height="48">
+                                    <img src="images/skills/shoptet-logo-sign-full.png" alt="Shoptet Logo"
+                                        style="height: 48px; width: auto; max-width: 120px;" width="120" height="48"
+                                        loading="lazy">
+                                </picture>
                             </div>
                             <h5 class="fw-bold text-dark mb-3">Shoptet</h5>
                             <p class="text-muted mb-0">E-commerce platforma, custom témata, Smarty templating</p>
@@ -1105,7 +1135,7 @@
             <div class="row g-4">
                 <!-- Logo & Description -->
                 <div class="col-12 col-lg-4">
-                    <h3 class="h4 fw-bold mb-3">Karel Omáčka</h3>
+                    <h3 class="h4 fw-bold mb-3">Dominik Omáčka</h3>
                     <p class="mb-0">Frontend vývojář</p>
                     <p class="text-muted small">... a se smyslem pro humor.</p>
                 </div>
@@ -1172,7 +1202,7 @@
                 <div class="col-12">
                     <div class="text-center">
                         <p class="mb-0">
-                            &copy; 2025 Karel Omáčka. Všechna práva vyhrazena.
+                            &copy; 2025 Dominik Omáčka. Všechna práva vyhrazena.
                             <span class="mx-2 d-none d-sm-inline">|</span>
                             <span class="d-block d-sm-inline mt-1 mt-sm-0">
                                 Vytvořeno s

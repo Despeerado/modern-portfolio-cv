@@ -1,17 +1,25 @@
-/* SVG Icon System - nahrada za Font Awesome */
+/* Optimized SVG Icon System - Font Awesome free alternative */
 .icon {
   display: inline-block;
   width: 1em;
   height: 1em;
   vertical-align: -0.125em;
   fill: currentColor;
+  flex-shrink: 0;
 }
 
+/* Icon sizes with performance optimization */
 .icon-sm { width: 0.875em; height: 0.875em; }
 .icon-lg { width: 1.25em; height: 1.25em; }
 .icon-xl { width: 1.5em; height: 1.5em; }
 .icon-2x { width: 2em; height: 2em; }
 .icon-3x { width: 3em; height: 3em; }
+
+/* Preload critical icons */
+.icon[data-preload] {
+  content-visibility: auto;
+  contain-intrinsic-size: 1em 1em;
+}
 
 /* Animace pro interaktivní ikony */
 .icon-hover {
