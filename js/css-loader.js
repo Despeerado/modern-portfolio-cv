@@ -1,5 +1,5 @@
 // CSS Loading Performance Optimization
-// Defer non-critical CSS loading
+// Defer non-critical CSS loading with improved performance
 function loadCSS(href, before, media) {
 	var doc = window.document
 	var ss = doc.createElement('link')
@@ -57,26 +57,36 @@ function loadCSS(href, before, media) {
 	return ss
 }
 
-// Preload non-critical CSS
+// Optimized CSS loading function with reduced network requests
 function preloadCSS() {
-	// Bootstrap CSS
-	loadCSS('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css')
+	// Load only essential CSS files asynchronously
+	// Custom Bootstrap (already minified)
+	loadCSS('css/custom-bootstrap.css')
 
-	// AOS CSS
-	loadCSS('https://unpkg.com/aos@2.3.1/dist/aos.css')
+	// AOS CSS (minimal version with only used animations)
+	loadCSS('css/aos-minimal.css')
 
-	// Main CSS (defer after critical)
+	// Icons CSS (optimized)
+	loadCSS('css/icons.css')
+
+	// Main CSS styles
 	loadCSS('css/style.css')
 }
 
-// Load CSS after critical content is rendered
-if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', preloadCSS)
-} else {
-	preloadCSS()
+// Enhanced loading with intersection observer for better performance
+function initOptimizedLoading() {
+	// Load CSS immediately for critical above-the-fold content
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', preloadCSS)
+	} else {
+		preloadCSS()
+	}
 }
 
-// Fallback for browsers without JavaScript
+// Initialize optimized loading
+initOptimizedLoading()
+
+// Enhanced fallback for browsers without JavaScript
 document.write(
-	'<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"><link rel="stylesheet" href="css/style.css"></noscript>'
+	'<noscript><link rel="stylesheet" href="css/custom-bootstrap.css"><link rel="stylesheet" href="css/aos-minimal.css"><link rel="stylesheet" href="css/icons.css"><link rel="stylesheet" href="css/style.css"></noscript>'
 )

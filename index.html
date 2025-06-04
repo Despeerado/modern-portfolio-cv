@@ -18,17 +18,29 @@
     <meta property="og:image" content="https://despeerado.github.io/modern-portfolio-cv/images/profile-placeholder.svg">
     <meta property="og:url" content="https://despeerado.github.io/modern-portfolio-cv/">
 
-    <!-- Performance optimizations -->
+    <!-- FÁZE 6: Advanced Performance Optimizations -->
+    <!-- Critical resource priorities -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="https://unpkg.com">
 
-    <!-- Image optimization - preload hero image -->
+    <!-- Backup Google Fonts loading for critical fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200..800&family=Petrona:wght@100..900&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+
+    <!-- Remove external CDN dependencies for better performance -->
+    <!-- <link rel="preconnect" href="https://cdn.jsdelivr.net"> -->
+    <!-- <link rel="dns-prefetch" href="https://unpkg.com"> -->
+
+    <!-- Critical resource preloads with priorities -->
     <link rel="preload" as="image" href="images/profile-placeholder.svg" fetchpriority="high">
+    <link rel="preload" as="script" href="js/main.min.js" fetchpriority="high">
+    <link rel="preload" as="style" href="css/custom-bootstrap.css" fetchpriority="high">
+
+    <!-- Module preload for modern browsers -->
+    <link rel="modulepreload" href="js/sw-register.js">
 
     <!-- Resource hints for above-the-fold icons -->
-    <link rel="dns-prefetch" href="./images/">
+    <link rel="dns-prefetch" href="./images/">>
     <link rel="prefetch" as="image" href="images/image_brush.svg">
     <link rel="prefetch" as="image" href="images/image_documents.svg">
     <link rel="prefetch" as="image" href="images/image_api.svg">
@@ -36,6 +48,46 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.ico">
+
+    <!-- FÁZE 6: PWA Manifest for installable app experience -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#76b852">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Portfolio DO">
+
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Dominik Omáčka",
+        "jobTitle": "Frontend vývojář",
+        "description": "Frontend vývojář specializující se na moderní webové technologie, Sass, Bootstrap a UX design",
+        "url": "https://despeerado.github.io/modern-portfolio-cv/",
+        "image": "https://despeerado.github.io/modern-portfolio-cv/images/profile-placeholder.svg",
+        "sameAs": [
+            "https://github.com/despeerado",
+            "https://linkedin.com/in/dominik-omacka"
+        ],
+        "knowsAbout": [
+            "HTML5",
+            "CSS3", 
+            "JavaScript",
+            "Sass/SCSS",
+            "Bootstrap",
+            "React.js",
+            "Node.js",
+            "TypeScript",
+            "Shoptet",
+            "Tailwind CSS"
+        ],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelancer"
+        }
+    }
+    </script>
 
     <!-- Critical CSS - inline pro rychlé načtení -->
     <style>
@@ -111,7 +163,6 @@
         header {
             background-image: linear-gradient(135deg, #fffaf8 0%, #f2e8cf 100%);
             padding: 180px 0 100px;
-            margin-top: 76px
         }
 
         .display-6 {
@@ -240,6 +291,7 @@
         function loadCSS(href, before, media) { var doc = window.document; var ss = doc.createElement("link"); var ref; if (before) { ref = before } else { var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes; ref = refs[refs.length - 1] } var sheets = doc.styleSheets; ss.rel = "stylesheet"; ss.href = href; ss.media = "only x"; function ready(cb) { if (doc.body) { return cb() } setTimeout(function () { ready(cb) }) } ready(function () { ref.parentNode.insertBefore(ss, (before ? ref : ref.nextSibling)) }); var onloadcssdefined = function (cb) { var resolvedHref = ss.href; var i = sheets.length; while (i--) { if (sheets[i].href === resolvedHref) { return cb() } } setTimeout(function () { onloadcssdefined(cb) }) }; function loadCB() { if (ss.addEventListener) { ss.removeEventListener("load", loadCB) } ss.media = media || "all" } if (ss.addEventListener) { ss.addEventListener("load", loadCB) } ss.onloadcssdefined = onloadcssdefined; onloadcssdefined(loadCB); return ss }
 
         // Load non-critical CSS
+        loadCSS("https://fonts.googleapis.com/css2?family=Karla:wght@200..800&family=Petrona:wght@100..900&display=swap");
         loadCSS("css/custom-bootstrap.css");
         loadCSS("https://unpkg.com/aos@2.3.1/dist/aos.css");
         loadCSS("css/icons.css");
@@ -248,6 +300,9 @@
 
     <!-- Fallback pro prohlížeče bez JS -->
     <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Karla:wght@200..800&family=Petrona:wght@100..900&display=swap"
+            rel="stylesheet">
         <link href="css/custom-bootstrap.css" rel="stylesheet">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="stylesheet" href="css/icons.css">
@@ -257,35 +312,40 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top shadow-sm " id="mainNav" data-bs-theme="light">
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm " id="mainNav" data-bs-theme="light" role="navigation"
+        aria-label="Hlavní navigace">
         <div class="container px-3">
-            <a class="navbar-brand fw-bold  fs-4" href="#page-top">Dominik Omáčka</a>
+            <a class="navbar-brand fw-bold  fs-4" href="#page-top" aria-label="Dominik Omáčka - návrat na úvod">Dominik
+                Omáčka</a>
             <div class="d-flex align-items-center order-lg-3">
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                    aria-label="Otevřít/zavřít navigační menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
             <div class="collapse navbar-collapse order-lg-2" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link fw-medium" href="#about">O mně</a>
+                <ul class="navbar-nav ms-auto" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a class="nav-link fw-medium" href="#about" role="menuitem" aria-label="Přejít na sekci O mně">O
+                            mně</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link fw-medium" href="#experience">Zkušenosti</a>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link fw-medium" href="#experience" role="menuitem"
+                            aria-label="Přejít na sekci Zkušenosti">Zkušenosti</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link fw-medium" href="#contact">Kontakt</a>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link fw-medium" href="#contact" role="menuitem"
+                            aria-label="Přejít na sekci Kontakt">Kontakt</a>
                     </li>
-                </ul>Vy
+                </ul>
             </div>
         </div>
     </nav>
 
     <!-- Header Section -->
-    <header class=" py-5" id="page-top" style="margin-top: 76px;">
+    <header class="py-5" style="margin-top: 76px;" id="page-top" role="banner">
         <div class="container px-3">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
@@ -334,12 +394,12 @@
     </header>
 
     <!-- About Section -->
-    <section id="about" class="py-5 ">
+    <section id="about" class="py-5" role="main" aria-labelledby="about-heading">
         <div class="container px-3">
             <div class="row">
                 <div class="col-12">
                     <div class="text-center mb-5" data-aos="fade-up">
-                        <h2 class="display-6 display-md-5 fw-bold  mb-3">O mně</h2>
+                        <h2 id="about-heading" class="display-6 display-md-5 fw-bold  mb-3">O mně</h2>
                         <p class="lead text-muted">Poznejte moje zkušenosti a dovednosti</p>
                     </div>
                 </div>
@@ -404,12 +464,12 @@
 
 
     <!-- Skills Section -->
-    <section id="skills" class="py-5 bg-light">
+    <section id="skills" class="py-5 bg-light" role="region" aria-labelledby="skills-heading">
         <div class="container px-3">
             <div class="row">
                 <div class="col-12">
                     <div class="text-center mb-5" data-aos="fade-up">
-                        <h2 class="display-5 fw-bold text-dark mb-3">Technické dovednosti</h2>
+                        <h2 id="skills-heading" class="display-5 fw-bold text-dark mb-3">Technické dovednosti</h2>
                         <p class="lead text-muted">Nástroje a technologie, se kterými pracuji</p>
                     </div>
                 </div>
@@ -426,7 +486,7 @@
                                 <img src="images/logo_css3.svg" alt="CSS3" style="height: 3rem;" width="48" height="48"
                                     loading="lazy">
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">HTML5 & CSS3</h5>
+                            <h3 class="fw-bold text-dark mb-3">HTML5 & CSS3</h3>
                             <p class="text-muted mb-0">Semantický HTML a moderní CSS včetně Flexbox, Grid a animací</p>
                         </div>
                     </div>
@@ -439,7 +499,7 @@
                                 <img src="images/logo_javascript.svg" alt="JavaScript" style="height: 3rem;" width="48"
                                     height="48" loading="lazy">
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">JavaScript ES6+</h5>
+                            <h3 class="fw-bold text-dark mb-3">JavaScript ES6+</h3>
                             <p class="text-muted mb-0">Moderní JavaScript včetně async/await, destructuring, modules</p>
                         </div>
                     </div>
@@ -452,7 +512,7 @@
                                 <img src="images/logo_sass.svg" alt="Sass/SCSS" style="height: 3rem;" width="48"
                                     height="48" loading="lazy">
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">Sass/SCSS</h5>
+                            <h3 class="fw-bold text-dark mb-3">Sass/SCSS</h3>
                             <p class="text-muted mb-0">CSS preprocessor, mixins, variables, nested rules</p>
                         </div>
                     </div>
@@ -465,7 +525,7 @@
                                 <img src="images/logo_bootstrap.svg" alt="Bootstrap" style="height: 3rem;" width="48"
                                     height="48" loading="lazy">
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">Bootstrap 5</h5>
+                            <h3 class="fw-bold text-dark mb-3">Bootstrap 5</h3>
                             <p class="text-muted mb-0">Responzivní framework, utility classes, komponenty</p>
                         </div>
                     </div>
@@ -483,7 +543,7 @@
                                         loading="lazy">
                                 </picture>
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">Shoptet</h5>
+                            <h3 class="fw-bold text-dark mb-3">Shoptet</h3>
                             <p class="text-muted mb-0">E-commerce platforma, custom témata, Smarty templating</p>
                         </div>
                     </div>
@@ -496,7 +556,7 @@
                                 <img src="images/logo_tailwind.svg" alt="Tailwind CSS" style="height: 3rem;" width="48"
                                     height="48" loading="lazy">
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">Tailwind CSS</h5>
+                            <h3 class="fw-bold text-dark mb-3">Tailwind CSS</h3>
                             <p class="text-muted mb-0">Utility-first CSS framework pro rychlé prototypování</p>
                         </div>
                     </div>
@@ -509,7 +569,7 @@
             <div class="row mt-5">
                 <div class="col-12">
                     <div class="text-center mb-4" data-aos="fade-up">
-                        <h4 class="fw-bold text-dark">Technologie, které se učím</h4>
+                        <h3 class="fw-bold text-dark">Technologie, které se učím</h3>
                         <p class="text-muted">Neustále rozšiřuji své znalosti a zkoumám nové možnosti</p>
                     </div>
                 </div>
@@ -524,7 +584,7 @@
                                 <img src="images/logo_react.svg" alt="React.js" style="height: 3rem;" width="48"
                                     height="48" loading="lazy">
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">React.js</h5>
+                            <h3 class="fw-bold text-dark mb-3">React.js</h3>
                             <p class="text-muted mb-0">Komponenty, Hooks, Context API - postupně se učím moderní
                                 přístupy</p>
                         </div>
@@ -539,7 +599,7 @@
                                 <img src="images/logo_nodejs.svg" alt="Node.js" style="height: 3rem;" width="48"
                                     height="48" loading="lazy">
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">Node.js</h5>
+                            <h3 class="fw-bold text-dark mb-3">Node.js</h3>
                             <p class="text-muted mb-0">Backend development, Express.js, REST API - rozšiřuji do
                                 fullstack vývoje</p>
                         </div>
@@ -554,7 +614,7 @@
                                 <img src="images/logo_typescript.svg" alt="TypeScript" style="height: 3rem;" width="48"
                                     height="48" loading="lazy">
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">TypeScript</h5>
+                            <h3 class="fw-bold text-dark mb-3">TypeScript</h3>
                             <p class="text-muted mb-0">Typový systém pro JavaScript - zlepšuji kvalitu kódu a vývojovou
                                 zkušenost</p>
                         </div>
@@ -566,7 +626,7 @@
             <div class="row mt-5">
                 <div class="col-12">
                     <div class="text-center mb-4" data-aos="fade-up">
-                        <h4 class="fw-bold text-dark">Nástroje a workflow</h4>
+                        <h3 class="fw-bold text-dark">Nástroje a workflow</h3>
                     </div>
                 </div>
             </div>
@@ -661,7 +721,7 @@
             <div class="row mt-5">
                 <div class="col-12">
                     <div class="text-center mb-4" data-aos="fade-up">
-                        <h4 class="fw-bold text-dark">AI nástroje pro vývoj</h4>
+                        <h3 class="fw-bold text-dark">AI nástroje pro vývoj</h3>
                         <p class="text-muted">Moderní AI asistenti, kteří zrychlují můj workflow</p>
                     </div>
                 </div>
@@ -676,7 +736,7 @@
                                 <img src="images/logo_copilot.svg" alt="GitHub Copilot" style="height: 3rem;" width="48"
                                     height="48" loading="lazy">
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">GitHub Copilot</h5>
+                            <h3 class="fw-bold text-dark mb-3">GitHub Copilot</h3>
                             <p class="text-muted mb-0">AI pair programmer pro generování kódu, autocompletování a
                                 refactoring</p>
                         </div>
@@ -691,7 +751,7 @@
                                 <img src="images/logo_chatgpt.svg" alt="ChatGPT" style="height: 3rem;" width="48"
                                     height="48" loading="lazy">
                             </div>
-                            <h5 class="fw-bold text-dark mb-3">ChatGPT</h5>
+                            <h3 class="fw-bold text-dark mb-3">ChatGPT</h3>
                             <p class="text-muted mb-0">AI asistent pro řešení problémů, code review a technickou
                                 dokumentaci</p>
                         </div>
@@ -702,13 +762,13 @@
     </section>
 
     <!-- Experience Timeline Section -->
-    <section id="experience" class="py-5 ">
+    <section id="experience" class="py-5" role="region" aria-labelledby="experience-heading">
         <div class="container px-3 px-lg-4">
             <!-- Section Title -->
             <div class="row">
                 <div class="col-12">
                     <div class="text-center mb-5" data-aos="fade-up">
-                        <h2 class="display-5 fw-bold  mb-3">Profesní zkušenosti</h2>
+                        <h2 id="experience-heading" class="display-5 fw-bold  mb-3">Profesní zkušenosti</h2>
                         <p class="lead text-muted">Moje kariérní cesta a klíčové projekty</p>
                     </div>
                 </div>
@@ -800,15 +860,16 @@
                                                 </span>
                                             </div>
                                             <h4 class="h5 fw-bold  mb-2">Frontend developer (Freelance)</h4>
-                                            <h5 class="h6 text-success mb-3">Tvůj Brand, s.r.o.</h5>
-                                            <p class="text-muted mb-3">Úpravy na Shoptet eshopech. Spolupráce probíhá
-                                                remote formou s flexibilním zapojením dle aktuálních kapacit.</p>
-                                            <div class="d-flex flex-wrap gap-1">
-                                                <span class="badge   border">Shoptet</span>
-                                                <span class="badge   border">SASS</span>
-                                                <span class="badge   border">JavaScript</span>
-                                                <span class="badge   border">jQuery</span>
-                                            </div>
+                                            <h5 class="h6 text-success mb-3">Tvůj Brand, s.r.o.</h3>
+                                                <p class="text-muted mb-3">Úpravy na Shoptet eshopech. Spolupráce
+                                                    probíhá
+                                                    remote formou s flexibilním zapojením dle aktuálních kapacit.</p>
+                                                <div class="d-flex flex-wrap gap-1">
+                                                    <span class="badge   border">Shoptet</span>
+                                                    <span class="badge   border">SASS</span>
+                                                    <span class="badge   border">JavaScript</span>
+                                                    <span class="badge   border">jQuery</span>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -850,20 +911,23 @@
                                                 </span>
                                             </div>
                                             <h4 class="h5 fw-bold  mb-2">Frontend Developer</h4>
-                                            <h5 class="h6 text-info mb-3">Mime digital, s.r.o.</h5>Kódoval jsem šablony
-                                            na míru Shoptetu, převáděl návrhy z Figmy, upravoval stávající DOM a styly.
-                                            Vytvářel jsem JS funkce, napojoval frontend na API, pracoval se Sass, jQuery
-                                            a Gitem, opravoval bugy a řešil support tickety. Pracovali jsme agilně ve
-                                            scrumu.</p>
-                                            <div class="d-flex flex-wrap gap-1">
-                                                <span class="badge   border">Shoptet</span>
-                                                <span class="badge   border">HTML5</span>
-                                                <span class="badge   border">CSS3</span>
-                                                <span class="badge   border">SASS</span>
-                                                <span class="badge   border">JavaScript</span>
-                                                <span class="badge   border">jQuery</span>
-                                                <span class="badge   border">Figma</span>
-                                            </div>
+                                            <h5 class="h6 text-info mb-3">Mime digital, s.r.o.</h3>Kódoval jsem šablony
+                                                na míru Shoptetu, převáděl návrhy z Figmy, upravoval stávající DOM a
+                                                styly.
+                                                Vytvářel jsem JS funkce, napojoval frontend na API, pracoval se Sass,
+                                                jQuery
+                                                a Gitem, opravoval bugy a řešil support tickety. Pracovali jsme agilně
+                                                ve
+                                                scrumu.</p>
+                                                <div class="d-flex flex-wrap gap-1">
+                                                    <span class="badge   border">Shoptet</span>
+                                                    <span class="badge   border">HTML5</span>
+                                                    <span class="badge   border">CSS3</span>
+                                                    <span class="badge   border">SASS</span>
+                                                    <span class="badge   border">JavaScript</span>
+                                                    <span class="badge   border">jQuery</span>
+                                                    <span class="badge   border">Figma</span>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -899,7 +963,7 @@
                                             </div>
                                             <h4 class="h5 fw-bold  mb-2">Nutriční terapeut</h4>
                                             <h5 class="h6 text-warning mb-3">SZŠ a vyšší odborná škola zdravotnická,
-                                                Brno</h5>
+                                                Brno</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -918,8 +982,8 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <h5 class="fw-bold  mb-2">A pokračuji dál...</h5>
-                                <p class="text-muted mb-0">Stále se učím nové technologie a hledám výzvy</p>
+                                <h5 class="fw-bold  mb-2">A pokračuji dál...</h3>
+                                    <p class="text-muted mb-0">Stále se učím nové technologie a hledám výzvy</p>
                             </div>
                         </div>
                     </div>
@@ -929,13 +993,14 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
+    <section id="contact" class="py-5 bg-light" role="region" aria-labelledby="contact-heading">
         <div class="container px-3 px-lg-4">
             <!-- Section Title -->
             <div class="row">
                 <div class="col-12">
                     <div class="text-center mb-5" data-aos="fade-up">
-                        <h2 class="display-5 fw-bold  mb-3">Kontakt</h2>
+                        <h2 id="contact-heading" class="display-5 fw-bold  mb-3">Kontakt</h2>
+                        <p class="lead text-muted">Spojte se se mnou pro spolupráci nebo dotazy</p>
                     </div>
                 </div>
             </div>
@@ -952,7 +1017,7 @@
                             <div class="d-flex align-items-start mb-3">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center"
-                                        style="width: 50px; height: 50px;">
+                                        style="width: 50px; height: 50px;" aria-hidden="true">
                                         <svg class="icon timeline-icon-svg text-white" viewBox="0 0 24 24"
                                             fill="currentColor">
                                             <path
@@ -963,10 +1028,10 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <h5 class="h6 fw-bold  mb-1">Email</h5>
+                                    <h3 class="h6 fw-bold  mb-1">Email</h3>
                                     <p class="text-muted mb-0">
-                                        <a href="mailto:info@vasedomena.cz"
-                                            class="text-decoration-none text-muted">info@vasedomena.cz</a>
+                                        <a href="mailto:info@vasedomena.cz" class="text-decoration-none text-muted"
+                                            aria-label="Odeslat email na info@vasedomena.cz">info@vasedomena.cz</a>
                                     </p>
                                 </div>
                             </div>
@@ -974,7 +1039,7 @@
                             <div class="d-flex align-items-start">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center"
-                                        style="width: 50px; height: 50px;">
+                                        style="width: 50px; height: 50px;" aria-hidden="true">
                                         <svg class="icon timeline-icon-svg text-white" viewBox="0 0 24 24"
                                             fill="currentColor">
                                             <path fill-rule="evenodd"
@@ -984,9 +1049,10 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <h5 class="h6 fw-bold  mb-1">Telefon</h5>
+                                    <h3 class="h6 fw-bold  mb-1">Telefon</h3>
                                     <p class="text-muted mb-0">
-                                        <a href="tel:+420123456789" class="text-decoration-none text-muted">+420 123 456
+                                        <a href="tel:+420123456789" class="text-decoration-none text-muted"
+                                            aria-label="Zavolat na číslo +420 123 456 789">+420 123 456
                                             789</a>
                                     </p>
                                 </div>
@@ -995,20 +1061,20 @@
 
                         <!-- Social Icons -->
                         <div>
-                            <h5 class="h6 fw-bold  mb-3">Sledujte mě</h5>
+                            <h3 class="h6 fw-bold  mb-3">Sledujte mě</h3>
                             <div class="d-flex gap-3">
                                 <a href="#"
                                     class="btn btn-outline-primary btn-sm rounded-circle d-flex align-items-center justify-content-center"
-                                    style="width: 40px; height: 40px;">
-                                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                    style="width: 40px; height: 40px;" aria-label="LinkedIn profil">
+                                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                         <path
                                             d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                                     </svg>
                                 </a>
                                 <a href="#"
                                     class="btn btn-outline-primary btn-sm rounded-circle d-flex align-items-center justify-content-center"
-                                    style="width: 40px; height: 40px;">
-                                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                    style="width: 40px; height: 40px;" aria-label="GitHub profil">
+                                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                         <path
                                             d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                                     </svg>
@@ -1231,14 +1297,39 @@
         </svg>
     </a>
 
-    <!-- Bootstrap 5 JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FÁZE 6: Advanced JavaScript Loading Strategy -->
+
+    <!-- Service Worker Registration - highest priority for caching -->
+    <script src="js/sw-register.js" defer></script>
+
+    <!-- Bootstrap 5 JS Bundle with Popper - defer for performance -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
 
     <!-- AOS JS - pro animace při scrollování -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
-    <!-- Custom JS -->
-    <script src="js/main.js"></script>
+    <!-- Custom JS - minified for optimal performance -->
+    <script src="js/main.min.js" defer></script>
+
+    <!-- Performance monitoring (optional) -->
+    <script>
+        // Web Vitals monitoring for performance tracking
+        if ('performance' in window && 'PerformanceObserver' in window) {
+            // Monitor Largest Contentful Paint (LCP)
+            new PerformanceObserver((entryList) => {
+                for (const entry of entryList.getEntries()) {
+                    console.log('LCP:', entry.startTime);
+                }
+            }).observe({ entryTypes: ['largest-contentful-paint'] });
+
+            // Monitor First Input Delay (FID)
+            new PerformanceObserver((entryList) => {
+                for (const entry of entryList.getEntries()) {
+                    console.log('FID:', entry.processingStart - entry.startTime);
+                }
+            }).observe({ entryTypes: ['first-input'] });
+        }
+    </script>
 </body>
 
 </html>

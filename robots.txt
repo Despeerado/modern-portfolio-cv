@@ -1,0 +1,31 @@
+# FÁZE 6: SEO Optimized Robots.txt
+# Virtual CV Portfolio - Dominik Omáčka
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://despeerado.github.io/modern-portfolio-cv/sitemap.xml
+
+# Prioritize important pages
+Allow: /index.html
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Block service worker and manifest from indexing
+Disallow: /sw.js
+Disallow: /manifest.json
+
+# Performance files
+Allow: /.htaccess
+
+# Social media crawlers
+User-agent: facebookexternalhit/*
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /

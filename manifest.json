@@ -1,0 +1,68 @@
+{
+  "name": "Dominik Omáčka - Frontend vývojář Portfolio",
+  "short_name": "Portfolio DO",
+  "description": "Portfolio Dominika Omáčky - Frontend vývojář specializující se na moderní webové technologie",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#f2e8cf",
+  "theme_color": "#76b852",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "cs",
+  "categories": ["portfolio", "business", "productivity"],
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "O mně",
+      "short_name": "O mně",
+      "description": "Informace o mých dovednostech a zkušenostech",
+      "url": "/#about",
+      "icons": [
+        {
+          "src": "images/image_brush.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Portfolio",
+      "short_name": "Práce",
+      "description": "Moje vybrané projekty a realizace",
+      "url": "/#portfolio",
+      "icons": [
+        {
+          "src": "images/image_documents.svg",
+          "sizes": "any", 
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Kontakt",
+      "short_name": "Kontakt",
+      "description": "Spojte se se mnou",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "images/image_api.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
+}
