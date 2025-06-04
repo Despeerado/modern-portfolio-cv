@@ -88,5 +88,5 @@ initOptimizedLoading()
 
 // Enhanced fallback for browsers without JavaScript
 document.write(
-	'<noscript><link rel="stylesheet" href="css/custom-bootstrap.css"><link rel="stylesheet" href="css/aos-minimal.css"><link rel="stylesheet" href="css/icons.css"><link rel="stylesheet" href="css/style.css"></noscript>'
+	'<noscript><link rel="stylesheet" href="css/custom-bootstrap.css"><link rel="stylesheet" href="css/aos-minimal.css"><link rel="stylesheet" href="css/icons.css"><link rel="stylesheet" href="css/style.min.css"></noscript>'
 )

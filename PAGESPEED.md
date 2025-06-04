@@ -1,3 +1,172 @@
+nový výpis:
+
+výpis z pagespeed: 
+Odstraňte nepoužívané styly CSS Potenciální úspora 64 KiB
+Odstraňte ze šablon stylů nepoužívaná pravidla a odložte styly CSS, které se nepoužívají pro obsah nad okrajem, abyste snížili množství dat využívaných síťovou aktivitou. Jak omezit nevyužité styly CSS.LCPFCP
+URL
+Velikost přenosu
+Možná úspora
+GitHub utility První strana
+70,0 KiB	64,0 KiB
+…css/style.css(despeerado.github.io)
+36,0 KiB
+32,9 KiB
+…css/custom-bootstrap.css(despeerado.github.io)
+
+
+Prvek Largest Contentful Paint 2 890 ms
+Toto je největší obsahový prvek vykreslený v zobrazované oblasti. Další informace o prvku spojeném s vykreslením největšího obsahuLCP
+Prvek
+Profilová fotografie
+<img src="images/profile-placeholder.svg" alt="Profilová fotografie" class="img-fluid rounded-circle shadow w-75" style="max-width: 300px;" width="300" height="300" loading="eager" fetchpriority="high">
+Fáze
+% LCP
+Časování
+TTFB
+21%
+600 ms
+Prodleva načítání
+0%
+0 ms
+Doba načítání
+18%
+520 ms
+Prodleva vykreslení
+61%
+1 770 ms
+
+
+Minifikujte kód CSS Potenciální úspora 6 KiB
+Minifikací souborů CSS lze snížit množství přenášených dat. Jak minifikovat CSSLCPFCP
+URL
+Velikost přenosu
+Možná úspora
+GitHub utility První strana
+36,7 KiB	6,4 KiB
+…css/style.css(despeerado.github.io)
+36,7 KiB
+6,4 KiB
+
+Statické podklady zobrazujte s efektivními zásadami pro mezipaměť Bylo nalezeno 26 zdrojů
+Dlouhá platnost mezipaměti může zrychlit opakované návštěvy stránky. Další informace o efektivních zásadách pro mezipaměť
+URL
+Hodnota TTL (Time to Live) mezipaměti
+Velikost přenosu
+GitHub utility První strana
+107 KiB
+…css/style.css(despeerado.github.io)
+10 m
+37 KiB
+…css/custom-bootstrap.css(despeerado.github.io)
+10 m
+35 KiB
+…skills/shoptet-logo-sign-full.webp(despeerado.github.io)
+10 m
+3 KiB
+…js/main.min.js(despeerado.github.io)
+10 m
+3 KiB
+…images/logo_sass.svg(despeerado.github.io)
+10 m
+2 KiB
+…images/logo_css3.svg(despeerado.github.io)
+10 m
+2 KiB
+…images/logo_gitkraken.svg(despeerado.github.io)
+10 m
+2 KiB
+…images/logo_bootstrap.svg(despeerado.github.io)
+10 m
+2 KiB
+…images/logo_typescript.svg(despeerado.github.io)
+10 m
+2 KiB
+…images/logo_nodejs.svg(despeerado.github.io)
+10 m
+1 KiB
+…images/image_brush.svg(despeerado.github.io)
+10 m
+1 KiB
+…images/image_api.svg(despeerado.github.io)
+10 m
+1 KiB
+…css/icons.css(despeerado.github.io)
+10 m
+1 KiB
+…images/logo_javascript.svg(despeerado.github.io)
+10 m
+1 KiB
+…js/sw-register.js(despeerado.github.io)
+10 m
+1 KiB
+…js/sw-register.js(despeerado.github.io)
+10 m
+1 KiB
+…images/image_documents.svg(despeerado.github.io)
+10 m
+1 KiB
+…images/logo_vscode.svg(despeerado.github.io)
+10 m
+1 KiB
+…images/logo_html.svg(despeerado.github.io)
+10 m
+1 KiB
+…images/logo_tailwind.svg(despeerado.github.io)
+10 m
+1 KiB
+…images/logo_figma.svg(despeerado.github.io)
+10 m
+1 KiB
+…images/webpack.svg(despeerado.github.io)
+10 m
+1 KiB
+…images/logo_npm.svg(despeerado.github.io)
+10 m
+1 KiB
+…images/profile-placeholder.svg(despeerado.github.io)
+10 m
+1 KiB
+…images/logo_react.svg(despeerado.github.io)
+10 m
+1 KiB
+…images/logo_terminal.svg(despeerado.github.io)
+10 m
+1 KiB
+
+
+Odkazy nemají rozeznatelné názvy
+Text odkazů (a náhradní text obrázků, když jsou použité jako odkazy), který je rozeznatelný a jedinečný a který lze vybrat, uživatelům čteček obrazovek usnadňuje procházení stránek. Jak zajistit přístupnost odkazů
+Prvky, které neprošly
+div.col-12 > div.aos-init > div.d-flex > a.fs-4
+<a href="#" class="fs-4 icon-social">
+div.col-12 > div.aos-init > div.d-flex > a.fs-4
+<a href="#" class="fs-4 icon-social">
+div.col-12 > div.aos-init > div.d-flex > a.fs-4
+<a href="#" class="fs-4 icon-social">
+div.row > div.col-12 > div.d-flex > a.btn
+<a href="#" class="btn btn-outline-primary btn-sm rounded-circle d-flex align-items-center ju…" style="width: 40px; height: 40px;">
+div.row > div.col-12 > div.d-flex > a.btn
+<a href="#" class="btn btn-outline-primary btn-sm rounded-circle d-flex align-items-center ju…" style="width: 40px; height: 40px;">
+Toto jsou příležitosti ke zlepšení sémantiky ovládacích prvků v aplikaci. Mohou zlepšit prostředí pro uživatele asistenčních technologií, jako jsou například čtečky obrazovek.
+
+
+Prvky nadpisu se nezobrazují v sestupném pořadí
+Toto jsou příležitosti ke zlepšení navigace pomocí klávesnice v aplikaci.
+
+
+Do konzole byly zaprotokolovány chyby prohlížeče
+Chyby zaprotokolované do konzole ukazují na nevyřešené problémy. Mohou pocházet ze selhání síťových požadavků nebo jiných problémů v prohlížeči. Další informace o těchto chybách v diagnostickém auditu v konzoli
+Zdroj
+Popis
+Nepřiřaditelné
+A bad HTTP response code (404) was received when fetching the script.
+Google Fonts cdn 
+…v33/mtG04_FCK….woff2:1:0(fonts.gstatic.com)
+Failed to load resource: the server responded with a status of 404 (Not Found)
+…v31/qkBIXvYC6….woff2:1:0(fonts.gstatic.com)
+Failed to load resource: the server responded with a status of 404 (Not Found)
+
+starý výpis:
 
 Eliminate render-blocking resources Est savings of 640 ms
 Resources are blocking the first paint of your page. Consider delivering critical JS/CSS inline and deferring all non-critical JS/styles. Learn how to eliminate render-blocking resources.LCPFCP
