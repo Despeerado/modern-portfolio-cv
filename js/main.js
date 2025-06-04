@@ -259,39 +259,81 @@ const FormManager = (() => {
 		}, 5000)
 	}
 
-	const handleFormSubmission = (form, formControls) => {
+	const handleFormSubmission = async (form, formControls) => {
 		const submitBtn = form.querySelector('button[type="submit"]')
 		const originalHTML = submitBtn.innerHTML
+		const formStatus = document.getElementById('form-status')
 
 		// Show loading state
 		submitBtn.disabled = true
 		submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Odesílání...'
 
-		// Simulate form submission (replace with actual submission logic)
-		setTimeout(() => {
-			// Show success state
-			submitBtn.innerHTML = '<i class="fas fa-check me-2"></i>Odesláno!'
-			submitBtn.classList.remove('btn-primary')
-			submitBtn.classList.add('btn-success')
+		try {
+			// Prepare form data
+			const formData = new FormData(form)
 
-			// Show success message
-			showAlert('Zpráva byla úspěšně odeslána! Odpovím vám co nejdříve.', 'success', form)
+			// Pomocí console.log můžeme zkontrolovat odesílaná data
+			console.log('Odesílám formulář s daty:', Object.fromEntries(formData))
 
-			// Reset form
-			form.reset()
-			form.classList.remove('was-validated')
-			formControls.forEach((input) => {
-				input.classList.remove('is-valid', 'is-invalid')
+			// Send to Formspree
+			const response = await fetch(form.action, {
+				method: form.method,
+				body: formData,
+				headers: {
+					Accept: 'application/json',
+				},
 			})
+
+			if (response.ok) {
+				// Show success state
+				submitBtn.innerHTML = '<i class="fas fa-check me-2"></i>Odesláno!'
+				submitBtn.classList.remove('btn-primary')
+				submitBtn.classList.add('btn-success')
+
+				// Show success message
+				showAlert('Zpráva byla úspěšně odeslána! Odpovím vám co nejdříve.', 'success', form)
+
+				// Reset form
+				form.reset()
+				form.classList.remove('was-validated')
+				formControls.forEach((input) => {
+					input.classList.remove('is-valid', 'is-invalid')
+				})
+
+				// Reset button after 3 seconds
+				setTimeout(() => {
+					submitBtn.innerHTML = originalHTML
+					submitBtn.classList.remove('btn-success')
+					submitBtn.classList.add('btn-primary')
+					submitBtn.disabled = false
+				}, 3000)
+			} else {
+				const data = await response.json()
+				if (data.errors) {
+					throw new Error(data.errors.map((error) => error.message).join(', '))
+				} else {
+					throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+				}
+			}
+		} catch (error) {
+			console.error('Error:', error)
+
+			// Show error state
+			submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>Chyba'
+			submitBtn.classList.remove('btn-primary')
+			submitBtn.classList.add('btn-danger')
+
+			// Show error message
+			showAlert('Nastala chyba při odesílání zprávy. Zkuste to prosím znovu nebo mě kontaktujte přímo.', 'danger', form)
 
 			// Reset button after 3 seconds
 			setTimeout(() => {
 				submitBtn.innerHTML = originalHTML
-				submitBtn.classList.remove('btn-success')
+				submitBtn.classList.remove('btn-danger')
 				submitBtn.classList.add('btn-primary')
 				submitBtn.disabled = false
 			}, 3000)
-		}, 1500)
+		}
 	}
 
 	const setupFormValidation = (form) => {
@@ -299,16 +341,15 @@ const FormManager = (() => {
 
 		// Bootstrap 5 form validation
 		form.addEventListener('submit', function (event) {
+			event.preventDefault() // Vždy zabraň standardnímu odesílání
+
 			if (!form.checkValidity()) {
-				event.preventDefault()
 				event.stopPropagation()
+				form.classList.add('was-validated')
 			} else {
 				// Form is valid, handle submission
-				event.preventDefault()
 				handleFormSubmission(form, formControls)
 			}
-
-			form.classList.add('was-validated')
 		})
 
 		// Real-time validation feedback
