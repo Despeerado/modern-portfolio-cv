@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cache Optimization Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GitHub Pages Cache Optimization Test</h1>
+
+    <div id="results"></div>
+
+    <script>
+        async function testCacheOptimization() {
+            const results = document.getElementById('results');
+
+            // Test 1: Service Worker registrace
+            try {
+                if ('serviceWorker' in navigator) {
+                    const registration = await navigator.serviceWorker.register('/sw.js');
+                    results.innerHTML += `<div class="status success">✅ Service Worker registrován: ${registration.scope}</div>`;
+
+                    // Test cache stats
+                    if (registration.active) {
+                        navigator.serviceWorker.addEventListener('message', (event) => {
+                            if (event.data) {
+                                results.innerHTML += `<div class="status success">📊 Cache statistiky: ${JSON.stringify(event.data)}</div>`;
+                            }
+                        });
+
+                        registration.active.postMessage({ type: 'CACHE_STATS' });
+                    }
+                } else {
+                    results.innerHTML += `<div class="status error">❌ Service Worker není podporován</div>`;
+                }
+            } catch (error) {
+                results.innerHTML += `<div class="status error">❌ Service Worker chyba: ${error.message}</div>`;
+            }
+
+            // Test 2: Cache busting v CSS
+            const cssLinks = document.querySelectorAll('link[rel="stylesheet"]');
+            let cacheBustingFound = false;
+            cssLinks.forEach(link => {
+                if (link.href.includes('?v=')) {
+                    cacheBustingFound = true;
+                }
+            });
+
+            if (cacheBustingFound) {
+                results.innerHTML += `<div class="status success">✅ Cache busting aplikován na CSS</div>`;
+            } else {
+                results.innerHTML += `<div class="status warning">⚠️ Cache busting nenalezen v CSS</div>`;
+            }
+
+            // Test 3: Performance API
+            if ('performance' in window) {
+                const navigation = performance.getEntriesByType('navigation')[0];
+                const fromCache = navigation.transferSize === 0;
+
+                results.innerHTML += `<div class="status ${fromCache ? 'success' : 'warning'}">
+                    ${fromCache ? '✅' : '📥'} Stránka načtena ${fromCache ? 'z cache' : 'ze sítě'} 
+                    (Transfer size: ${navigation.transferSize} bytes)
+                </div>`;
+            }
+
+            // Test 4: Resource timing
+            const resources = performance.getEntriesByType('resource');
+            const cachedResources = resources.filter(r => r.transferSize === 0);
+
+            results.innerHTML += `<div class="status success">
+                📈 Resources v cache: ${cachedResources.length}/${resources.length}
+            </div>`;
+
+            // Test 5: Manifest
+            const manifest = document.querySelector('link[rel="manifest"]');
+            if (manifest) {
+                results.innerHTML += `<div class="status success">✅ Manifest nalezen: ${manifest.href}</div>`;
+            } else {
+                results.innerHTML += `<div class="status warning">⚠️ Manifest nenalezen</div>`;
+            }
+        }
+
+        // Spustit test po načtení stránky
+        window.addEventListener('load', testCacheOptimization);
+    </script>
+</body>
+
+</html>

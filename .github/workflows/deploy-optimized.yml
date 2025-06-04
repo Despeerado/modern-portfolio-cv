@@ -1,0 +1,92 @@
+name: Deploy with Cache Optimization
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: |
+        npm install --only=dev
+        
+    - name: Cache Optimization
+      run: |
+        # Add cache busting to CSS/JS files
+        TIMESTAMP=$(date +%s)
+        
+        # Update CSS references
+        sed -i "s/style\.css/style.css?v=$TIMESTAMP/g" *.html
+        sed -i "s/custom-bootstrap\.css/custom-bootstrap.css?v=$TIMESTAMP/g" *.html
+        
+        # Update JS references  
+        sed -i "s/main\.min\.js/main.min.js?v=$TIMESTAMP/g" *.html
+        
+        echo "Cache busting applied with timestamp: $TIMESTAMP"
+        
+    - name: Optimize Images
+      run: |
+        # Convert PNG to WebP if needed
+        if command -v cwebp &> /dev/null; then
+          find images/skills -name "*.png" -exec sh -c 'cwebp -q 85 "$1" -o "${1%.png}.webp"' _ {} \;
+        fi
+        
+    - name: Minify Assets
+      run: |
+        # Minify CSS if not already minified
+        if [ -f css/style.css ] && [ ! -f css/style.min.css ]; then
+          npx cleancss -o css/style.min.css css/style.css
+        fi
+        
+        # Update HTML to use minified versions
+        sed -i 's/style\.css/style.min.css/g' *.html
+        
+    - name: Update Service Worker
+      run: |
+        # Use optimized service worker
+        if [ -f sw-optimized.js ]; then
+          cp sw-optimized.js sw.js
+        fi
+        
+    - name: Validate Cache Setup
+      run: |
+        echo "Validating cache optimization setup..."
+        
+        # Check if critical files exist
+        [ -f sw.js ] && echo "✓ Service Worker exists"
+        [ -f manifest.json ] && echo "✓ Manifest exists"
+        [ -f css/style.min.css ] && echo "✓ Minified CSS exists"
+        
+        # Check cache busting in HTML
+        if grep -q "\.css?v=" *.html; then
+          echo "✓ Cache busting applied to CSS"
+        fi
+        
+        if grep -q "\.js?v=" *.html; then
+          echo "✓ Cache busting applied to JS"
+        fi
+        
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        # Keep history for better caching
+        keep_files: false
+        # Custom domain settings (if applicable)
+        # cname: your-domain.com

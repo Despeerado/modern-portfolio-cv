@@ -1,0 +1,38 @@
+# GitHub Pages Cache Optimization Configuration
+# Pro GitHub Pages deployment s optimalizovaným cache
+
+# 1. Pre-commit hook pro generování cache-friendly file names
+name: GitHub Pages Cache Optimization
+
+# 2. Cache busting strategie
+cache_busting:
+  # CSS a JS soubory s verzí
+  - style.css -> style.v2.css
+  - main.js -> main.v2.js
+  
+# HTML soubory aktualizovat odkazy
+update_references: true
+
+# 3. Asset optimization pro GitHub Pages
+assets:
+  # Komprese obrázků
+  images:
+    - webp_conversion: true
+    - compression_level: 85
+    
+  # CSS/JS minifikace
+  minification:
+    css: true
+    js: true
+    
+# 4. Service Worker strategie
+service_worker:
+  file: sw-optimized.js
+  cache_strategy:
+    static_assets: 1_year
+    html_pages: 1_day
+    
+# 5. Manifest.json optimalizace
+manifest:
+  cache_assets: true
+  preload_critical: true
