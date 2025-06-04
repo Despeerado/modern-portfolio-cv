@@ -19,13 +19,17 @@
     <meta property="og:url" content="https://despeerado.github.io/modern-portfolio-cv/">
 
     <!-- FÁZE 6: Advanced Performance Optimizations -->
-    <!-- Critical resource priorities -->
+    <!-- Font loading bude řešen dynamicky přes font-loader.js -->
+    <!-- Preconnect pro rychlejší DNS lookup -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Backup Google Fonts loading for critical fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200..800&family=Petrona:wght@100..900&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
+    <!-- Backup - pouze pro případ selhání JS -->
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Karla:wght@200..800&family=Petrona:wght@100..900&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- Remove external CDN dependencies for better performance -->
     <!-- <link rel="preconnect" href="https://cdn.jsdelivr.net"> -->
@@ -92,22 +96,24 @@
     <!-- Critical CSS - inline pro rychlé načtení -->
     <style>
         /* Font optimization with fallbacks */
-        @font-face {
-            font-family: 'Karla';
-            font-style: normal;
-            font-weight: 200 800;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/karla/v32/qkBbXvYC6trAT7RVLtyU5rZP.woff2) format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        /* Systémové fallback fonty dokud se nenačtou Google Fonts */
+        :root {
+            --font-karla: "Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-petrona: "Petrona", Georgia, "Times New Roman", Times, serif;
         }
 
-        @font-face {
-            font-family: 'Petrona';
-            font-style: normal;
-            font-weight: 100 900;
-            font-display: swap;
-            src: url(https://fonts.gstatic.com/s/petrona/v35/mtG64_NXL7bZo9XXgXJYtUkS0CQ.woff2) format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        /* Font loading optimized - dynamicky načítáno přes font-loader.js */
+        body {
+            font-family: var(--font-karla);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-petrona);
         }
 
         /* Critical above-the-fold styles */
@@ -278,11 +284,7 @@
     </style>
 
     <!-- Preload important resources -->
-    <!-- Preload font files directly for better performance -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/karla/v32/qkBbXvYC6trAT7RVLtyU5rZP.woff2" as="font"
-        type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/petrona/v35/mtG64_NXL7bZo9XXgXJYtUkS0CQ.woff2" as="font"
-        type="font/woff2" crossorigin>
+    <!-- Font preloading bude řešen dynamicky přes font-loader.js -->
     <link rel="preload" href="images/profile-placeholder.svg" as="image">
 
     <!-- Asynchronní načítání CSS -->
@@ -1330,6 +1332,9 @@
             }).observe({ entryTypes: ['first-input'] });
         }
     </script>
+
+    <!-- Dynamic Font Loader -->
+    <script src="js/font-loader.js?v=1749048895" defer></script>
 </body>
 
 </html>

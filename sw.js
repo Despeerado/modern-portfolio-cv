@@ -37,6 +37,9 @@ const LONG_CACHE_ASSETS = [
 	'/images/logo_terminal.svg',
 	'/images/webpack.svg',
 
+	// Font loader script
+	'/js/font-loader.js',
+
 	// Utility obrázky
 	'/images/image_brush.svg',
 	'/images/image_api.svg',
