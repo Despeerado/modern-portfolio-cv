@@ -122,7 +122,7 @@ class PerformanceAudit {
 	// Run complete audit
 	run() {
 		console.log('🔍 VIRTUAL CV PERFORMANCE AUDIT')
-		console.log('Dominik Omáčka - Portfolio Optimization Report')
+		console.log('Dominik Beran - Portfolio Optimization Report')
 		console.log('Generated:', new Date().toLocaleString('cs-CZ'))
 		console.log('')
 

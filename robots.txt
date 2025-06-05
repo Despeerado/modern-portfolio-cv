@@ -1,5 +1,5 @@
 # FÁZE 6: SEO Optimized Robots.txt
-# Virtual CV Portfolio - Dominik Omáčka
+# Virtual CV Portfolio - Dominik Beran
 
 User-agent: *
 Allow: /
